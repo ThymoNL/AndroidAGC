@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import nl.thymo.virtualagc.control.ELDPanel;
 import nl.thymo.virtualagc.control.IndicatorPanel;
 
 public class MainActivity extends AppCompatActivity {
@@ -13,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     static DSKYTest dskyTest;
 
     IndicatorPanel indicatorPanel;
+    ELDPanel eldPanel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         indicatorPanel = findViewById(R.id.indicatorPanel);
+        eldPanel = findViewById(R.id.eldPanel);
 
         dskyTest = new DSKYTest(indicatorPanel);
         dskyTest.start();

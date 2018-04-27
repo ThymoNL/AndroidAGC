@@ -9,8 +9,8 @@ import android.util.AttributeSet;
  */
 
 public class IndicatorLight extends AppCompatImageView {
-    int onResource = 0, offResource = 0;
-    boolean state = false;
+    private int onResource = 0, offResource = 0;
+    private boolean state = false;
 
     public IndicatorLight(Context context) {
         super(context);

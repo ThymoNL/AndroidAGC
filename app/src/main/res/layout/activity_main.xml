@@ -12,13 +12,13 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/include"
-        app:layout_constraintEnd_toStartOf="@+id/eldInclude"
+        app:layout_constraintEnd_toStartOf="@+id/eldPanel"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <include
-        android:id="@+id/eldInclude"
+    <nl.thymo.virtualagc.control.ELDPanel
+        android:id="@+id/eldPanel"
         layout="@layout/eld_display"
         android:layout_width="150dp"
         android:layout_height="wrap_content"

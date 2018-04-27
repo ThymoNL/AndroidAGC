@@ -22,11 +22,6 @@ public class MainActivity extends AppCompatActivity {
         indicatorPanel = findViewById(R.id.indicatorPanel);
 
         dskyTest = new DSKYTest(indicatorPanel);
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
         dskyTest.start();
     }
 

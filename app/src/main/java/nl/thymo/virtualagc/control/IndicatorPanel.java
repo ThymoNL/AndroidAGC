@@ -1,4 +1,4 @@
-package nl.thymo.virtualagc;
+package nl.thymo.virtualagc.control;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 
-import nl.thymo.virtualagc.control.IndicatorLight;
+import nl.thymo.virtualagc.R;
 
 /**
  * Created by thymo on 27/04/18.
@@ -19,7 +19,7 @@ public class IndicatorPanel extends LinearLayout {
 
     public enum Indicator {
         UPLINK, NOATT, STBY, KEYREL, OPRERR,
-        PRIODISP, NODAP, TEMP,GIMBALLOCK,
+        PRIODISP, NODAP, TEMP, GIMBALLOCK,
         PROG, RESTART, TRACKER, ALT, VEL
     }
 
@@ -43,6 +43,61 @@ public class IndicatorPanel extends LinearLayout {
         init();
     }
 
+    public void turnOn(Indicator light) {
+        setState(light, true);
+    }
+
+    public void turnOff(Indicator light) {
+        setState(light, false);
+    }
+
+    private void setState(Indicator light, boolean state) {
+        switch (light) {
+            case UPLINK:
+                uplinkLight.setState(state);
+                break;
+            case NOATT:
+                attLight.setState(state);
+                break;
+            case STBY:
+                stbyLight.setState(state);
+                break;
+            case KEYREL:
+                keyrelLight.setState(state);
+                break;
+            case OPRERR:
+                oprerrLight.setState(state);
+                break;
+            case PRIODISP:
+                priodispLight.setState(state);
+                break;
+            case NODAP:
+                nodapLight.setState(state);
+                break;
+            case TEMP:
+                tempLight.setState(state);
+                break;
+            case GIMBALLOCK:
+                gimballockLight.setState(state);
+                break;
+            case PROG:
+                progLight.setState(state);
+                break;
+            case RESTART:
+                restartLight.setState(state);
+                break;
+            case TRACKER:
+                trackerLight.setState(state);
+                break;
+            case ALT:
+                altLight.setState(state);
+                break;
+            case VEL:
+                velLight.setState(state);
+                break;
+        }
+    }
+
     private void init() {
         LayoutInflater inflater = (LayoutInflater) getContext()
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -63,6 +118,7 @@ public class IndicatorPanel extends LinearLayout {
         altLight = findViewById(R.id.altLight);
         velLight = findViewById(R.id.velLight);
 
+        // Set resources to use for indicators
         uplinkLight.setResources(R.mipmap.uplinkactyon, R.mipmap.uplinkactyoff);
         attLight.setResources(R.mipmap.noatton, R.mipmap.noattoff);
         stbyLight.setResources(R.mipmap.stbyon, R.mipmap.stbyoff);

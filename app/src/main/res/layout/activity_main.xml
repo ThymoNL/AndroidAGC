@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorBackground">
 
-    <nl.thymo.virtualagc.IndicatorPanel
+    <nl.thymo.virtualagc.control.IndicatorPanel
         android:id="@+id/indicatorPanel"
         layout="@layout/indicators"
         android:layout_width="150dp"

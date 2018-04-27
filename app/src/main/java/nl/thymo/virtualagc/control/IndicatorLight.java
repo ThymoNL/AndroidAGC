@@ -33,13 +33,20 @@ public class IndicatorLight extends AppCompatImageView {
         return state;
     }
 
-    void turnOn() {
+    public void turnOn() {
         state = true;
         setImageResource(onResource);
     }
 
-    void turnOff() {
+    public void turnOff() {
         state = false;
         setImageResource(offResource);
+    }
+
+    public void setState(boolean state) {
+        if (state)
+            turnOn();
+        else
+            turnOff();
     }
 }

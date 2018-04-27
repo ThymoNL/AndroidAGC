@@ -5,7 +5,10 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    static AGCController controller = new AGCController();
+    //FIXME: Implement controller
+    //static AGCController controller = new AGCController();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

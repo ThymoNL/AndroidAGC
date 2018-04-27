@@ -9,6 +9,7 @@ import android.util.AttributeSet;
  */
 
 public class IndicatorLight extends AppCompatImageView {
+    int onResource = 0, offResource = 0;
     boolean state = false;
 
     public IndicatorLight(Context context) {
@@ -23,15 +24,22 @@ public class IndicatorLight extends AppCompatImageView {
         super(context, attrs, defStyleAttr);
     }
 
+    public void setResources(int onResource, int offResource) {
+        this.onResource = onResource;
+        this.offResource = offResource;
+    }
+
     boolean getState() {
         return state;
     }
 
     void turnOn() {
         state = true;
+        setImageResource(onResource);
     }
 
     void turnOff() {
         state = false;
+        setImageResource(offResource);
     }
 }

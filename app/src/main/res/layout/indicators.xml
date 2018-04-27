@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:weightSum="1" android:baselineAligned="false">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="0.5">
+
+        <nl.thymo.virtualagc.control.IndicatorLight
+            android:id="@+id/uplinkLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            app:srcCompat="@mipmap/uplinkactyon" />
+
+        <nl.thymo.virtualagc.control.IndicatorLight
+            android:id="@+id/attLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            app:srcCompat="@mipmap/noatton" />
+
+        <nl.thymo.virtualagc.control.IndicatorLight
+            android:id="@+id/stbyLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            app:srcCompat="@mipmap/stbyon" />
+
+        <nl.thymo.virtualagc.control.IndicatorLight
+            android:id="@+id/keyrelLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            app:srcCompat="@mipmap/keyrelon" />
+
+        <nl.thymo.virtualagc.control.IndicatorLight
+            android:id="@+id/oprerrLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            app:srcCompat="@mipmap/oprerron" />
+
+        <nl.thymo.virtualagc.control.IndicatorLight
+            android:id="@+id/priodispLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            app:srcCompat="@mipmap/priodispon" />
+
+        <nl.thymo.virtualagc.control.IndicatorLight
+            android:id="@+id/nodapLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            app:srcCompat="@mipmap/nodapon" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="0.5">
+
+        <nl.thymo.virtualagc.control.IndicatorLight
+            android:id="@+id/tempLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            app:srcCompat="@mipmap/tempon" />
+
+        <nl.thymo.virtualagc.control.IndicatorLight
+            android:id="@+id/gimballockLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            app:srcCompat="@mipmap/gimballockon" />
+
+        <nl.thymo.virtualagc.control.IndicatorLight
+            android:id="@+id/progLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            app:srcCompat="@mipmap/progon" />
+
+        <nl.thymo.virtualagc.control.IndicatorLight
+            android:id="@+id/restartLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            app:srcCompat="@mipmap/restarton" />
+
+        <nl.thymo.virtualagc.control.IndicatorLight
+            android:id="@+id/trackerLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            app:srcCompat="@mipmap/trackeron" />
+
+        <nl.thymo.virtualagc.control.IndicatorLight
+            android:id="@+id/altLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            app:srcCompat="@mipmap/alton" />
+
+        <nl.thymo.virtualagc.control.IndicatorLight
+            android:id="@+id/velLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            app:srcCompat="@mipmap/velon" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="150dp"
+    android:layout_height="250dp">
+
+    <nl.thymo.virtualagc.control.IndicatorLight
+        android:id="@+id/eldActy"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/compactyon" />
+
+    <!-- FIXME: Block extends 3dp beyond COMP ACTY light -->
+    <nl.thymo.virtualagc.control.IndicatorLight
+        android:id="@+id/eldProg"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/rprogon" />
+
+    <nl.thymo.virtualagc.control.ELD
+        android:id="@+id/progELD1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        app:layout_constraintBottom_toBottomOf="@+id/progELD2"
+        app:layout_constraintEnd_toStartOf="@+id/progELD2"
+        app:layout_constraintStart_toStartOf="@id/eldProg"
+        app:layout_constraintTop_toTopOf="@+id/progELD2"
+        app:srcCompat="@mipmap/a7seg_0" />
+
+    <nl.thymo.virtualagc.control.ELD
+        android:id="@+id/progELD2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintEnd_toEndOf="@id/eldProg"
+        app:layout_constraintStart_toEndOf="@+id/progELD1"
+        app:layout_constraintTop_toBottomOf="@+id/eldProg"
+        app:srcCompat="@mipmap/a7seg_0" />
+
+    <nl.thymo.virtualagc.control.IndicatorLight
+        android:id="@+id/eldVerb"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eldActy"
+        app:srcCompat="@mipmap/verbon" />
+
+    <nl.thymo.virtualagc.control.ELD
+        android:id="@+id/verbELD1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toStartOf="@id/verbELD2"
+        app:layout_constraintStart_toStartOf="@+id/eldVerb"
+        app:layout_constraintTop_toBottomOf="@+id/eldVerb"
+        app:srcCompat="@mipmap/a7seg_0" />
+
+    <nl.thymo.virtualagc.control.ELD
+        android:id="@+id/verbELD2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        app:layout_constraintBottom_toBottomOf="@+id/verbELD1"
+        app:layout_constraintEnd_toEndOf="@+id/eldVerb"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/verbELD1"
+        app:layout_constraintTop_toTopOf="@+id/verbELD1"
+        app:srcCompat="@mipmap/a7seg_0" />
+
+    <nl.thymo.virtualagc.control.IndicatorLight
+        android:id="@+id/eldNoun"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/eldVerb"
+        app:srcCompat="@mipmap/nounon" />
+
+    <nl.thymo.virtualagc.control.ELD
+        android:id="@+id/nounELD1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toStartOf="@id/nounELD2"
+        app:layout_constraintStart_toStartOf="@id/eldNoun"
+        app:layout_constraintTop_toBottomOf="@id/eldNoun"
+        app:srcCompat="@mipmap/a7seg_0"
+        tools:layout_editor_absoluteY="84dp" />
+
+    <nl.thymo.virtualagc.control.ELD
+        android:id="@+id/nounELD2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@+id/nounELD1"
+        app:layout_constraintEnd_toEndOf="@+id/eldNoun"
+        app:layout_constraintStart_toEndOf="@+id/nounELD1"
+        app:layout_constraintTop_toTopOf="@+id/nounELD1"
+        app:srcCompat="@mipmap/a7seg_0" />
+
+    <ImageView
+        android:id="@+id/r1Sep"
+        android:layout_width="0dp"
+        android:layout_height="10dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/verbELD1"
+        app:srcCompat="@mipmap/hseparatoron"
+        tools:ignore="ContentDescription" />
+
+    <nl.thymo.virtualagc.control.ELDRow
+        android:id="@+id/r1Eld"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/r1Sep" />
+
+    <ImageView
+        android:id="@+id/r2Sep"
+        android:layout_width="0dp"
+        android:layout_height="10dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/r1Eld"
+        app:srcCompat="@mipmap/hseparatoron"
+        tools:ignore="ContentDescription" />
+
+    <nl.thymo.virtualagc.control.ELDRow
+        android:id="@+id/r2Eld"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/r2Sep" />
+
+    <ImageView
+        android:id="@+id/r3Sep"
+        android:layout_width="0dp"
+        android:layout_height="10dp"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/r2Eld"
+        app:srcCompat="@mipmap/hseparatoron"
+        tools:ignore="ContentDescription" />
+
+    <nl.thymo.virtualagc.control.ELDRow
+        android:id="@+id/r3Eld"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/r3Sep" />
+
+
+</android.support.constraint.ConstraintLayout>

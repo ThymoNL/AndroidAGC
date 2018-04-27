@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">VirtualAGC</string>
+    <string name="noun">Noun</string>
+    <string name="verb">Verb</string>
+    <string name="enter">Enter</string>
+    <string name="reset">Reset</string>
+    <string name="pro">Proceed</string>
+    <string name="keyrel">Key Release</string>
+    <string name="clear">Clear</string>
+    <string name="six">six</string>
+    <string name="seven">seven</string>
+    <string name="eight">eight</string>
+    <string name="nine">nine</string>
+    <string name="five">five</string>
+    <string name="four">four</string>
+    <string name="three">three</string>
+    <string name="two">two</string>
+    <string name="one">one</string>
+    <string name="zero">zero</string>
+    <string name="minus">minus</string>
+    <string name="plus">plus</string>
 </resources>

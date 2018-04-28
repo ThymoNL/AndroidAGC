@@ -67,17 +67,17 @@ class DSKYTest implements Runnable {
                     eldPanel.setRow(""+i+i, eldDigitRows[0]);
                     eldPanel.setRow(""+i+i, eldDigitRows[1]);
                     eldPanel.setRow(""+i+i, eldDigitRows[2]);
-                    eldPanel.setRow("+"+i+i+i+i+i, eldDigitRows[3]);
-                    eldPanel.setRow("+"+i+i+i+i+i, eldDigitRows[4]);
-                    eldPanel.setRow("+"+i+i+i+i+i, eldDigitRows[5]);
+                    eldPanel.setRow("-"+i+i+i+i+i, eldDigitRows[3]);
+                    eldPanel.setRow("-"+i+i+i+i+i, eldDigitRows[4]);
+                    eldPanel.setRow("-"+i+i+i+i+i, eldDigitRows[5]);
                     Thread.sleep(1000);
                 }
                 eldPanel.setRow("00", eldDigitRows[0]);
                 eldPanel.setRow("00", eldDigitRows[1]);
                 eldPanel.setRow("00", eldDigitRows[2]);
-                eldPanel.setRow("-00000", eldDigitRows[3]);
-                eldPanel.setRow("-00000", eldDigitRows[4]);
-                eldPanel.setRow("-00000", eldDigitRows[5]);
+                eldPanel.setRow("+00000", eldDigitRows[3]);
+                eldPanel.setRow("+00000", eldDigitRows[4]);
+                eldPanel.setRow("+00000", eldDigitRows[5]);
                 Thread.sleep(2 * 1000);
             }
         } catch (InterruptedException e) {

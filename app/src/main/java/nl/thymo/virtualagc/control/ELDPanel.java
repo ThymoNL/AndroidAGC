@@ -17,6 +17,10 @@ public class ELDPanel extends ConstraintLayout {
     private ELD progELD1, progELD2, verbELD1, verbELD2, nounELD1, nounELD2;
     private ELDRow r1Eld, r2Eld, r3Eld;
 
+    public enum ELDIndicator {
+        ACTY, PROG, VERB, NOUN
+    }
+
     public ELDPanel(Context context) {
         super(context);
         init();
@@ -56,5 +60,30 @@ public class ELDPanel extends ConstraintLayout {
         eldProg.setResources(R.mipmap.rprogon, R.mipmap.rprogoff);
         eldVerb.setResources(R.mipmap.verbon, R.mipmap.verboff);
         eldNoun.setResources(R.mipmap.nounon, R.mipmap.nounoff);
+    }
+
+    public void turnOn(ELDIndicator light) {
+        setState(light, true);
+    }
+
+    public void turnOff(ELDIndicator light) {
+        setState(light, false);
+    }
+
+    private void setState(ELDIndicator light, boolean state) {
+        switch (light) {
+            case ACTY:
+                eldActy.setState(state);
+                break;
+            case PROG:
+                eldProg.setState(state);
+                break;
+            case VERB:
+                eldVerb.setState(state);
+                break;
+            case NOUN:
+                eldNoun.setState(state);
+                break;
+        }
     }
 }

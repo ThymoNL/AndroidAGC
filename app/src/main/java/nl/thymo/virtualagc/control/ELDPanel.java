@@ -21,6 +21,10 @@ public class ELDPanel extends ConstraintLayout {
         ACTY, PROG, VERB, NOUN
     }
 
+    public enum ELDDigitRow {
+        PROG, VERB, NOUN, R1, R2, R3
+    }
+
     public ELDPanel(Context context) {
         super(context);
         init();
@@ -63,14 +67,14 @@ public class ELDPanel extends ConstraintLayout {
     }
 
     public void turnOn(ELDIndicator light) {
-        setState(light, true);
+        setIndicator(light, true);
     }
 
     public void turnOff(ELDIndicator light) {
-        setState(light, false);
+        setIndicator(light, false);
     }
 
-    private void setState(ELDIndicator light, boolean state) {
+    private void setIndicator(ELDIndicator light, boolean state) {
         switch (light) {
             case ACTY:
                 eldActy.setState(state);
@@ -83,6 +87,32 @@ public class ELDPanel extends ConstraintLayout {
                 break;
             case NOUN:
                 eldNoun.setState(state);
+                break;
+        }
+    }
+
+    public void setRow(String s, ELDDigitRow select) {
+        switch (select) {
+            case R1:
+                r1Eld.set(s);
+                break;
+            case R2:
+                r2Eld.set(s);
+                break;
+            case R3:
+                r3Eld.set(s);
+                break;
+            case PROG:
+                progELD1.set(s.charAt(0));
+                progELD2.set(s.charAt(1));
+                break;
+            case VERB:
+                verbELD1.set(s.charAt(0));
+                verbELD2.set(s.charAt(1));
+                break;
+            case NOUN:
+                nounELD1.set(s.charAt(0));
+                nounELD2.set(s.charAt(1));
                 break;
         }
     }

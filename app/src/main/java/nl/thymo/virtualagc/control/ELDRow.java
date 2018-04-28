@@ -46,4 +46,13 @@ public class ELDRow extends LinearLayout {
         d4Eld = findViewById(R.id.d4Eld);
         d5Eld = findViewById(R.id.d5Eld);
     }
+
+    public void set(String row) {
+        signEld.set(row.charAt(0));
+        d1Eld.set(row.charAt(1));
+        d2Eld.set(row.charAt(2));
+        d3Eld.set(row.charAt(3));
+        d4Eld.set(row.charAt(4));
+        d5Eld.set(row.charAt(5));
+    }
 }

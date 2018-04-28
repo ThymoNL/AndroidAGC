@@ -3,9 +3,9 @@ package nl.thymo.virtualagc;
 import android.util.Log;
 
 import nl.thymo.virtualagc.control.ELDPanel;
-import nl.thymo.virtualagc.control.ELDPanel.ELDIndicator;
+import nl.thymo.virtualagc.control.ELDPanel.*;
 import nl.thymo.virtualagc.control.IndicatorPanel;
-import nl.thymo.virtualagc.control.IndicatorPanel.Indicator;
+import nl.thymo.virtualagc.control.IndicatorPanel.*;
 
 /**
  * Created by thymo on 27/04/18.
@@ -29,26 +29,55 @@ class DSKYTest implements Runnable {
     public void run() {
         Indicator[] lights = Indicator.values();
         ELDIndicator[] eldLights = ELDIndicator.values();
+        ELDDigitRow[] eldDigitRows = ELDDigitRow.values();
 
         try {
             while (!stop) {
+                // Indicator lights
                 for (int i = 0; i < lights.length; i++) {
                     indicatorPanel.turnOff(lights[i]);
                     Thread.sleep(250);
                 }
+                // Display lights
                 for (int i = 0; i < eldLights.length; i++) {
                     eldPanel.turnOff(eldLights[i]);
                     Thread.sleep(250);
                 }
+                // Display digits
+                eldPanel.setRow("xx", eldDigitRows[0]);
+                eldPanel.setRow("xx", eldDigitRows[1]);
+                eldPanel.setRow("xx", eldDigitRows[2]);
+                eldPanel.setRow("|xxxxx", eldDigitRows[3]);
+                eldPanel.setRow("|xxxxx", eldDigitRows[4]);
+                eldPanel.setRow("|xxxxx", eldDigitRows[5]);
+
                 Thread.sleep(2 * 1000);
+                // Indicator lights
                 for (int i = 0; i < lights.length; i++) {
                     indicatorPanel.turnOn(lights[i]);
                     Thread.sleep(250);
                 }
+                // Display lights
                 for (int i = 0; i < eldLights.length; i++) {
                     eldPanel.turnOn(eldLights[i]);
                     Thread.sleep(250);
                 }
+                // Display digits
+                for (int i = 1; i <= 9; i++) {
+                    eldPanel.setRow(""+i+i, eldDigitRows[0]);
+                    eldPanel.setRow(""+i+i, eldDigitRows[1]);
+                    eldPanel.setRow(""+i+i, eldDigitRows[2]);
+                    eldPanel.setRow("+"+i+i+i+i+i, eldDigitRows[3]);
+                    eldPanel.setRow("+"+i+i+i+i+i, eldDigitRows[4]);
+                    eldPanel.setRow("+"+i+i+i+i+i, eldDigitRows[5]);
+                    Thread.sleep(1000);
+                }
+                eldPanel.setRow("00", eldDigitRows[0]);
+                eldPanel.setRow("00", eldDigitRows[1]);
+                eldPanel.setRow("00", eldDigitRows[2]);
+                eldPanel.setRow("-00000", eldDigitRows[3]);
+                eldPanel.setRow("-00000", eldDigitRows[4]);
+                eldPanel.setRow("-00000", eldDigitRows[5]);
                 Thread.sleep(2 * 1000);
             }
         } catch (InterruptedException e) {

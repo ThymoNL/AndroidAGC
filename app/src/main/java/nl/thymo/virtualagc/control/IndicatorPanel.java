@@ -13,9 +13,9 @@ import nl.thymo.virtualagc.R;
  */
 
 public class IndicatorPanel extends LinearLayout {
-    private IndicatorLight uplinkLight, attLight, stbyLight, keyrelLight, oprerrLight, priodispLight,
-            nodapLight, tempLight, gimballockLight, progLight, restartLight, trackerLight, altLight,
-            velLight;
+    private IndicatorLight uplinkLight, attLight, stbyLight, keyrelLight, oprerrLight,
+            priodispLight, nodapLight, tempLight, gimballockLight, progLight, restartLight,
+            trackerLight, altLight, velLight;
 
     public enum Indicator {
         UPLINK, NOATT, STBY, KEYREL, OPRERR,

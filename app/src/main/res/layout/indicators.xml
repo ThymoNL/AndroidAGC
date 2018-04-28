@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:scaleType="centerInside"
             android:adjustViewBounds="true"
-            app:srcCompat="@mipmap/uplinkactyon" />
+            app:srcCompat="@mipmap/uplinkactyoff" />
 
         <nl.thymo.virtualagc.control.IndicatorLight
             android:id="@+id/attLight"
@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:scaleType="centerInside"
             android:adjustViewBounds="true"
-            app:srcCompat="@mipmap/noatton" />
+            app:srcCompat="@mipmap/noattoff" />
 
         <nl.thymo.virtualagc.control.IndicatorLight
             android:id="@+id/stbyLight"
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:scaleType="centerInside"
             android:adjustViewBounds="true"
-            app:srcCompat="@mipmap/stbyon" />
+            app:srcCompat="@mipmap/stbyoff" />
 
         <nl.thymo.virtualagc.control.IndicatorLight
             android:id="@+id/keyrelLight"
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:scaleType="centerInside"
             android:adjustViewBounds="true"
-            app:srcCompat="@mipmap/keyrelon" />
+            app:srcCompat="@mipmap/keyreloff" />
 
         <nl.thymo.virtualagc.control.IndicatorLight
             android:id="@+id/oprerrLight"
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:scaleType="centerInside"
             android:adjustViewBounds="true"
-            app:srcCompat="@mipmap/oprerron" />
+            app:srcCompat="@mipmap/oprerroff" />
 
         <nl.thymo.virtualagc.control.IndicatorLight
             android:id="@+id/priodispLight"
@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:scaleType="centerInside"
             android:adjustViewBounds="true"
-            app:srcCompat="@mipmap/priodispon" />
+            app:srcCompat="@mipmap/priodispoff" />
 
         <nl.thymo.virtualagc.control.IndicatorLight
             android:id="@+id/nodapLight"
@@ -66,7 +66,7 @@
             android:layout_height="wrap_content"
             android:scaleType="centerInside"
             android:adjustViewBounds="true"
-            app:srcCompat="@mipmap/nodapon" />
+            app:srcCompat="@mipmap/nodapoff" />
     </LinearLayout>
 
     <LinearLayout
@@ -81,7 +81,7 @@
             android:layout_height="wrap_content"
             android:scaleType="centerInside"
             android:adjustViewBounds="true"
-            app:srcCompat="@mipmap/tempon" />
+            app:srcCompat="@mipmap/tempoff" />
 
         <nl.thymo.virtualagc.control.IndicatorLight
             android:id="@+id/gimballockLight"
@@ -89,7 +89,7 @@
             android:layout_height="wrap_content"
             android:scaleType="centerInside"
             android:adjustViewBounds="true"
-            app:srcCompat="@mipmap/gimballockon" />
+            app:srcCompat="@mipmap/gimballockoff" />
 
         <nl.thymo.virtualagc.control.IndicatorLight
             android:id="@+id/progLight"
@@ -97,7 +97,7 @@
             android:layout_height="wrap_content"
             android:scaleType="centerInside"
             android:adjustViewBounds="true"
-            app:srcCompat="@mipmap/progon" />
+            app:srcCompat="@mipmap/progoff" />
 
         <nl.thymo.virtualagc.control.IndicatorLight
             android:id="@+id/restartLight"
@@ -105,7 +105,7 @@
             android:layout_height="wrap_content"
             android:scaleType="centerInside"
             android:adjustViewBounds="true"
-            app:srcCompat="@mipmap/restarton" />
+            app:srcCompat="@mipmap/restartoff" />
 
         <nl.thymo.virtualagc.control.IndicatorLight
             android:id="@+id/trackerLight"
@@ -113,7 +113,7 @@
             android:layout_height="wrap_content"
             android:scaleType="centerInside"
             android:adjustViewBounds="true"
-            app:srcCompat="@mipmap/trackeron" />
+            app:srcCompat="@mipmap/trackeroff" />
 
         <nl.thymo.virtualagc.control.IndicatorLight
             android:id="@+id/altLight"
@@ -121,7 +121,7 @@
             android:layout_height="wrap_content"
             android:scaleType="centerInside"
             android:adjustViewBounds="true"
-            app:srcCompat="@mipmap/alton" />
+            app:srcCompat="@mipmap/altoff" />
 
         <nl.thymo.virtualagc.control.IndicatorLight
             android:id="@+id/velLight"
@@ -129,7 +129,7 @@
             android:layout_height="wrap_content"
             android:scaleType="centerInside"
             android:adjustViewBounds="true"
-            app:srcCompat="@mipmap/velon" />
+            app:srcCompat="@mipmap/veloff" />
     </LinearLayout>
 
 </LinearLayout>

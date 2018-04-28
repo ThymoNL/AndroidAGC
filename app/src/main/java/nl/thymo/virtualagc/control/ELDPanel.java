@@ -14,7 +14,7 @@ import nl.thymo.virtualagc.R;
 public class ELDPanel extends ConstraintLayout {
     //TODO: Convert horizontal separators to IndicatorLight (for P06)
     private IndicatorLight eldActy, eldProg, eldVerb, eldNoun;
-    private ELD progELD1, progELD2, verbELD1, verbELD2, nounELD1, nounELD2;
+    private ELDPair progPair, verbPair, nounPair;
     private ELDRow r1Eld, r2Eld, r3Eld;
 
     public enum ELDIndicator {
@@ -49,12 +49,9 @@ public class ELDPanel extends ConstraintLayout {
         eldProg = findViewById(R.id.eldProg);
         eldVerb = findViewById(R.id.eldVerb);
         eldNoun = findViewById(R.id.eldNoun);
-        progELD1 = findViewById(R.id.progELD1);
-        progELD2 = findViewById(R.id.progELD2);
-        verbELD1 = findViewById(R.id.verbELD1);
-        verbELD2 = findViewById(R.id.verbELD2);
-        nounELD1 = findViewById(R.id.nounELD1);
-        nounELD2 = findViewById(R.id.nounELD2);
+        progPair = findViewById(R.id.progPair);
+        verbPair = findViewById(R.id.verbPair);
+        nounPair = findViewById(R.id.nounPair);
         r1Eld = findViewById(R.id.r1Eld);
         r2Eld = findViewById(R.id.r2Eld);
         r3Eld = findViewById(R.id.r3Eld);
@@ -103,16 +100,13 @@ public class ELDPanel extends ConstraintLayout {
                 r3Eld.set(s);
                 break;
             case PROG:
-                progELD1.set(s.charAt(0));
-                progELD2.set(s.charAt(1));
+                progPair.set(s);
                 break;
             case VERB:
-                verbELD1.set(s.charAt(0));
-                verbELD2.set(s.charAt(1));
+                verbPair.set(s);
                 break;
             case NOUN:
-                nounELD1.set(s.charAt(0));
-                nounELD2.set(s.charAt(1));
+                nounPair.set(s);
                 break;
         }
     }

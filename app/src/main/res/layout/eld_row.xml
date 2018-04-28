@@ -6,7 +6,7 @@
     android:orientation="horizontal">
 
     <nl.thymo.virtualagc.control.ELD
-        android:id="@+id/signEld"
+        android:id="@+id/eldSign"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -14,7 +14,7 @@
         app:srcCompat="@mipmap/plusminusoff" />
 
     <nl.thymo.virtualagc.control.ELD
-        android:id="@+id/d1Eld"
+        android:id="@+id/eld1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -22,7 +22,7 @@
         app:srcCompat="@mipmap/a7seg_0" />
 
     <nl.thymo.virtualagc.control.ELD
-        android:id="@+id/d2Eld"
+        android:id="@+id/eld2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -30,7 +30,7 @@
         app:srcCompat="@mipmap/a7seg_0" />
 
     <nl.thymo.virtualagc.control.ELD
-        android:id="@+id/d3Eld"
+        android:id="@+id/eld3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -38,7 +38,7 @@
         app:srcCompat="@mipmap/a7seg_0" />
 
     <nl.thymo.virtualagc.control.ELD
-        android:id="@+id/d4Eld"
+        android:id="@+id/eld4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -46,7 +46,7 @@
         app:srcCompat="@mipmap/a7seg_0" />
 
     <nl.thymo.virtualagc.control.ELD
-        android:id="@+id/d5Eld"
+        android:id="@+id/eld5"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"

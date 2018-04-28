@@ -26,27 +26,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/rprogoff" />
 
-    <nl.thymo.virtualagc.control.ELD
-        android:id="@+id/progELD1"
-        android:layout_width="0dp"
+    <nl.thymo.virtualagc.control.ELDPair
+        android:id="@+id/progPair"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        app:layout_constraintBottom_toBottomOf="@+id/progELD2"
-        app:layout_constraintEnd_toStartOf="@+id/progELD2"
-        app:layout_constraintStart_toStartOf="@id/eldProg"
-        app:layout_constraintTop_toTopOf="@+id/progELD2"
-        app:srcCompat="@mipmap/a7seg_0" />
-
-    <nl.thymo.virtualagc.control.ELD
-        android:id="@+id/progELD2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:adjustViewBounds="true"
-        app:layout_constraintEnd_toEndOf="@id/eldProg"
-        app:layout_constraintStart_toEndOf="@+id/progELD1"
-        app:layout_constraintTop_toBottomOf="@+id/eldProg"
-        app:srcCompat="@mipmap/a7seg_0" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/eldProg"
+        app:layout_constraintTop_toBottomOf="@+id/eldProg" />
 
     <nl.thymo.virtualagc.control.IndicatorLight
         android:id="@+id/eldVerb"
@@ -59,28 +45,15 @@
         app:layout_constraintTop_toBottomOf="@+id/eldActy"
         app:srcCompat="@mipmap/verboff" />
 
-    <nl.thymo.virtualagc.control.ELD
-        android:id="@+id/verbELD1"
+    <nl.thymo.virtualagc.control.ELDPair
+        android:id="@+id/verbPair"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:scaleType="centerInside"
-        app:layout_constraintEnd_toStartOf="@id/verbELD2"
-        app:layout_constraintStart_toStartOf="@+id/eldVerb"
-        app:layout_constraintTop_toBottomOf="@+id/eldVerb"
-        app:srcCompat="@mipmap/a7seg_0" />
-
-    <nl.thymo.virtualagc.control.ELD
-        android:id="@+id/verbELD2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        app:layout_constraintBottom_toBottomOf="@+id/verbELD1"
         app:layout_constraintEnd_toEndOf="@+id/eldVerb"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/verbELD1"
-        app:layout_constraintTop_toTopOf="@+id/verbELD1"
-        app:srcCompat="@mipmap/a7seg_0" />
+        app:layout_constraintStart_toStartOf="@+id/eldVerb"
+        app:layout_constraintTop_toBottomOf="@+id/eldVerb" />
 
     <nl.thymo.virtualagc.control.IndicatorLight
         android:id="@+id/eldNoun"
@@ -92,29 +65,13 @@
         app:layout_constraintTop_toTopOf="@+id/eldVerb"
         app:srcCompat="@mipmap/nounoff" />
 
-    <nl.thymo.virtualagc.control.ELD
-        android:id="@+id/nounELD1"
-        android:layout_width="0dp"
+    <nl.thymo.virtualagc.control.ELDPair
+        android:id="@+id/nounPair"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:scaleType="centerInside"
-        app:layout_constraintEnd_toStartOf="@id/nounELD2"
-        app:layout_constraintStart_toStartOf="@id/eldNoun"
-        app:layout_constraintTop_toBottomOf="@id/eldNoun"
-        app:srcCompat="@mipmap/a7seg_0"
-        tools:layout_editor_absoluteY="84dp" />
-
-    <nl.thymo.virtualagc.control.ELD
-        android:id="@+id/nounELD2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="@+id/nounELD1"
-        app:layout_constraintEnd_toEndOf="@+id/eldNoun"
-        app:layout_constraintStart_toEndOf="@+id/nounELD1"
-        app:layout_constraintTop_toTopOf="@+id/nounELD1"
-        app:srcCompat="@mipmap/a7seg_0" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/eldNoun"
+        app:layout_constraintTop_toBottomOf="@+id/eldNoun" />
 
     <ImageView
         android:id="@+id/r1Sep"
@@ -124,7 +81,7 @@
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/verbELD1"
+        app:layout_constraintTop_toBottomOf="@+id/verbPair"
         app:srcCompat="@mipmap/hseparatoron"
         tools:ignore="ContentDescription" />
 
@@ -181,6 +138,5 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/r3Sep" />
-
 
 </android.support.constraint.ConstraintLayout>

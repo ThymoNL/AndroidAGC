@@ -13,7 +13,7 @@ import nl.thymo.virtualagc.R;
  */
 
 public class ELDRow extends LinearLayout {
-    private ELD signEld, d1Eld, d2Eld, d3Eld, d4Eld, d5Eld;
+    private ELD eldSign, eld1, eld2, eld3, eld4, eld5;
 
     public ELDRow(Context context) {
         super(context);
@@ -36,23 +36,24 @@ public class ELDRow extends LinearLayout {
     }
 
     private void init() {
-        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) getContext()
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.eld_row, this);
 
-        signEld = findViewById(R.id.signEld);
-        d1Eld = findViewById(R.id.d1Eld);
-        d2Eld = findViewById(R.id.d2Eld);
-        d3Eld = findViewById(R.id.d3Eld);
-        d4Eld = findViewById(R.id.d4Eld);
-        d5Eld = findViewById(R.id.d5Eld);
+        eldSign = findViewById(R.id.eldSign);
+        eld1 = findViewById(R.id.eld1);
+        eld2 = findViewById(R.id.eld2);
+        eld3 = findViewById(R.id.eld3);
+        eld4 = findViewById(R.id.eld4);
+        eld5 = findViewById(R.id.eld5);
     }
 
     public void set(String row) {
-        signEld.set(row.charAt(0));
-        d1Eld.set(row.charAt(1));
-        d2Eld.set(row.charAt(2));
-        d3Eld.set(row.charAt(3));
-        d4Eld.set(row.charAt(4));
-        d5Eld.set(row.charAt(5));
+        eldSign.set(row.charAt(0));
+        eld1.set(row.charAt(1));
+        eld2.set(row.charAt(2));
+        eld3.set(row.charAt(3));
+        eld4.set(row.charAt(4));
+        eld5.set(row.charAt(5));
     }
 }

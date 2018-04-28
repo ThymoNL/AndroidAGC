@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         indicatorPanel = findViewById(R.id.indicatorPanel);
         eldPanel = findViewById(R.id.eldPanel);
 
-        dskyTest = new DSKYTest(indicatorPanel);
+        dskyTest = new DSKYTest(indicatorPanel, eldPanel);
         dskyTest.start();
     }
 

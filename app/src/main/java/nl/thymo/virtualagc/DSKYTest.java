@@ -2,6 +2,8 @@ package nl.thymo.virtualagc;
 
 import android.util.Log;
 
+import nl.thymo.virtualagc.control.ELDPanel;
+import nl.thymo.virtualagc.control.ELDPanel.ELDIndicator;
 import nl.thymo.virtualagc.control.IndicatorPanel;
 import nl.thymo.virtualagc.control.IndicatorPanel.Indicator;
 
@@ -14,16 +16,19 @@ class DSKYTest implements Runnable {
     private boolean stop;
 
     private IndicatorPanel indicatorPanel;
+    private ELDPanel eldPanel;
 
     private static final String TAG = "DSKYTest";
 
-    DSKYTest(IndicatorPanel indicatorPanel) {
+    DSKYTest(IndicatorPanel indicatorPanel, ELDPanel eldPanel) {
         this.indicatorPanel = indicatorPanel;
+        this.eldPanel = eldPanel;
     }
 
     @SuppressWarnings("InfiniteLoopStatement")
     public void run() {
         Indicator[] lights = Indicator.values();
+        ELDIndicator[] eldLights = ELDIndicator.values();
 
         try {
             while (!stop) {
@@ -31,9 +36,17 @@ class DSKYTest implements Runnable {
                     indicatorPanel.turnOff(lights[i]);
                     Thread.sleep(250);
                 }
+                for (int i = 0; i < eldLights.length; i++) {
+                    eldPanel.turnOff(eldLights[i]);
+                    Thread.sleep(250);
+                }
                 Thread.sleep(2 * 1000);
                 for (int i = 0; i < lights.length; i++) {
                     indicatorPanel.turnOn(lights[i]);
+                    Thread.sleep(250);
+                }
+                for (int i = 0; i < eldLights.length; i++) {
+                    eldPanel.turnOn(eldLights[i]);
                     Thread.sleep(250);
                 }
                 Thread.sleep(2 * 1000);

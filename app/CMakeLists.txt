@@ -11,15 +11,27 @@ cmake_minimum_required(VERSION 3.4.1)
 # Gradle automatically packages shared libraries with your APK.
 
 add_library(
-            agc_init
-            SHARED
-            src/main/cpp/agc_init.c
-)
-
-add_library(
             agc_engine
             SHARED
             src/main/cpp/agc_engine.c
+)
+
+add_library(
+            agc_engine_init
+            SHARED
+            src/main/cpp/agc_engine_init.c
+)
+
+add_library(
+            agc_init
+            SHARED
+            src/main/cpp/agc_init.cpp
+)
+
+add_library(
+			rfopen
+			SHARED
+			src/main/cpp/rfopen.c
 )
 
 # Searches for a specified prebuilt library and stores the path as a
@@ -39,9 +51,17 @@ find_library( # Sets the name of the path variable.
 # can link multiple libraries, such as libraries you define in this
 # build script, prebuilt third-party libraries, or system libraries.
 
+target_link_libraries( agc_engine_init
+
+                       agc_engine
+                       rfopen )
+
 target_link_libraries( # Specifies the target library.
                        agc_init
+
                        agc_engine
+                       agc_engine_init
+                       rfopen
 
                        # Links the target library to the log library
                        # included in the NDK.

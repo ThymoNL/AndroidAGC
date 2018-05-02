@@ -2,16 +2,15 @@ package nl.thymo.virtualagc;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.TextView;
 
 import nl.thymo.virtualagc.control.ELDPanel;
 import nl.thymo.virtualagc.control.IndicatorPanel;
 
 public class MainActivity extends AppCompatActivity {
     //FIXME: Implement controller
-    //static AGCController controller = new AGCController();
+    private static AGCController controller;
 
-    static DSKYTest dskyTest;
+    private static DSKYTest dskyTest;
 
     IndicatorPanel indicatorPanel;
     ELDPanel eldPanel;
@@ -26,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
 
         dskyTest = new DSKYTest(indicatorPanel, eldPanel);
         dskyTest.start();
+
+        controller = new AGCController(getResources().openRawResource(R.raw.aurora12));
+        controller.initEngine();
     }
 
     @Override

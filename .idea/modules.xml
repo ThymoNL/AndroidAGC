@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/VirtualAGC.iml" filepath="$PROJECT_DIR$/VirtualAGC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AndroidAGC.iml" filepath="$PROJECT_DIR$/AndroidAGC.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

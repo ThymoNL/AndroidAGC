@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">VirtualAGC</string>
+    <string name="app_name">AndroidAGC</string>
     <string name="noun">Noun</string>
     <string name="verb">Verb</string>
     <string name="enter">Enter</string>

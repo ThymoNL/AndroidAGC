@@ -1,10 +1,10 @@
-package nl.thymo.virtualagc;
+package nl.thymo.androidagc;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import nl.thymo.virtualagc.control.ELDPanel;
-import nl.thymo.virtualagc.control.IndicatorPanel;
+import nl.thymo.androidagc.control.ELDPanel;
+import nl.thymo.androidagc.control.IndicatorPanel;
 
 public class MainActivity extends AppCompatActivity {
     //FIXME: Implement controller

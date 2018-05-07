@@ -1,4 +1,4 @@
-package nl.thymo.virtualagc.control;
+package nl.thymo.androidagc.control;
 
 import android.content.Context;
 import android.support.v7.widget.AppCompatImageView;

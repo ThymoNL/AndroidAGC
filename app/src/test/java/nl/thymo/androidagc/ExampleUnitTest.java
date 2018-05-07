@@ -1,4 +1,4 @@
-package nl.thymo.virtualagc;
+package nl.thymo.androidagc;
 
 import org.junit.Test;
 

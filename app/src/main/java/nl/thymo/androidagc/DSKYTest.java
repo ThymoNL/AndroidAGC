@@ -1,11 +1,11 @@
-package nl.thymo.virtualagc;
+package nl.thymo.androidagc;
 
 import android.util.Log;
 
-import nl.thymo.virtualagc.control.ELDPanel;
-import nl.thymo.virtualagc.control.ELDPanel.*;
-import nl.thymo.virtualagc.control.IndicatorPanel;
-import nl.thymo.virtualagc.control.IndicatorPanel.*;
+import nl.thymo.androidagc.control.ELDPanel;
+import nl.thymo.androidagc.control.ELDPanel.*;
+import nl.thymo.androidagc.control.IndicatorPanel;
+import nl.thymo.androidagc.control.IndicatorPanel.*;
 
 /**
  * Created by thymo on 27/04/18.

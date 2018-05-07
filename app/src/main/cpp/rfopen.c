@@ -7,7 +7,7 @@
 FILE * rfopen(const char *Filename, const char *mode)
 {
 	const char *dir = "/sdcard/AndroidAGC/";
-	char path[256];
+	char path[255];
 	snprintf(path, sizeof path, "%s%s", dir, Filename);
 	FILE * rom = fopen(path, mode);
 

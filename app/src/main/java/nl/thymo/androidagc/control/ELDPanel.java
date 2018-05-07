@@ -1,11 +1,11 @@
-package nl.thymo.virtualagc.control;
+package nl.thymo.androidagc.control;
 
 import android.content.Context;
 import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 
-import nl.thymo.virtualagc.R;
+import nl.thymo.androidagc.R;
 
 /**
  * Created by thymo on 28/04/18.

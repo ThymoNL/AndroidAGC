@@ -1,4 +1,4 @@
-package nl.thymo.virtualagc;
+package nl.thymo.androidagc;
 
 import android.os.Environment;
 import android.util.Log;
@@ -51,7 +51,7 @@ class AGCController implements Runnable {
 				Log.e(TAG, status + ": agc_t structure not allocated");
 				break;
 			case 5:
-				Log.e(TAG,status + ": File read error");
+				Log.e(TAG, status + ": File read error");
 				break;
 			case 6:
 				Log.e(TAG, status + ": Core-dump file not found");

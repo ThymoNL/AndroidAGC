@@ -1,4 +1,4 @@
-package nl.thymo.virtualagc;
+package nl.thymo.androidagc;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

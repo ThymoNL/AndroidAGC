@@ -4,7 +4,7 @@
     android:layout_width="50dp"
     android:layout_height="wrap_content">
 
-    <nl.thymo.virtualagc.control.ELD
+    <nl.thymo.androidagc.control.ELD
         android:id="@+id/eld1"
         android:layout_width="25dp"
         android:layout_height="wrap_content"
@@ -12,7 +12,7 @@
         android:adjustViewBounds="true"
         app:srcCompat="@mipmap/a7seg_0" />
 
-    <nl.thymo.virtualagc.control.ELD
+    <nl.thymo.androidagc.control.ELD
         android:id="@+id/eld2"
         android:layout_width="25dp"
         android:layout_height="wrap_content"

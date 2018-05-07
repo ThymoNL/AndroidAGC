@@ -5,7 +5,7 @@
     android:layout_width="150dp"
     android:layout_height="250dp">
 
-    <nl.thymo.virtualagc.control.IndicatorLight
+    <nl.thymo.androidagc.control.IndicatorLight
         android:id="@+id/eldActy"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
@@ -16,7 +16,7 @@
         app:srcCompat="@mipmap/compactyoff" />
 
     <!-- FIXME: Block extends 3dp beyond COMP ACTY light -->
-    <nl.thymo.virtualagc.control.IndicatorLight
+    <nl.thymo.androidagc.control.IndicatorLight
         android:id="@+id/eldProg"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
@@ -26,7 +26,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/rprogoff" />
 
-    <nl.thymo.virtualagc.control.ELDPair
+    <nl.thymo.androidagc.control.ELDPair
         android:id="@+id/progPair"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
         app:layout_constraintStart_toStartOf="@+id/eldProg"
         app:layout_constraintTop_toBottomOf="@+id/eldProg" />
 
-    <nl.thymo.virtualagc.control.IndicatorLight
+    <nl.thymo.androidagc.control.IndicatorLight
         android:id="@+id/eldVerb"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
         app:layout_constraintTop_toBottomOf="@+id/eldActy"
         app:srcCompat="@mipmap/verboff" />
 
-    <nl.thymo.virtualagc.control.ELDPair
+    <nl.thymo.androidagc.control.ELDPair
         android:id="@+id/verbPair"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
         app:layout_constraintStart_toStartOf="@+id/eldVerb"
         app:layout_constraintTop_toBottomOf="@+id/eldVerb" />
 
-    <nl.thymo.virtualagc.control.IndicatorLight
+    <nl.thymo.androidagc.control.IndicatorLight
         android:id="@+id/eldNoun"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
         app:layout_constraintTop_toTopOf="@+id/eldVerb"
         app:srcCompat="@mipmap/nounoff" />
 
-    <nl.thymo.virtualagc.control.ELDPair
+    <nl.thymo.androidagc.control.ELDPair
         android:id="@+id/nounPair"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
         app:layout_constraintStart_toStartOf="@+id/eldNoun"
         app:layout_constraintTop_toBottomOf="@+id/eldNoun" />
 
-    <nl.thymo.virtualagc.control.IndicatorLight
+    <nl.thymo.androidagc.control.IndicatorLight
         android:id="@+id/r1Sep"
         android:layout_width="0dp"
         android:layout_height="10dp"
@@ -85,7 +85,7 @@
         app:srcCompat="@mipmap/hseparator"
         tools:ignore="ContentDescription" />
 
-    <nl.thymo.virtualagc.control.ELDRow
+    <nl.thymo.androidagc.control.ELDRow
         android:id="@+id/r1Eld"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -94,7 +94,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/r1Sep" />
 
-    <nl.thymo.virtualagc.control.IndicatorLight
+    <nl.thymo.androidagc.control.IndicatorLight
         android:id="@+id/r2Sep"
         android:layout_width="0dp"
         android:layout_height="10dp"
@@ -108,7 +108,7 @@
         app:srcCompat="@mipmap/hseparator"
         tools:ignore="ContentDescription" />
 
-    <nl.thymo.virtualagc.control.ELDRow
+    <nl.thymo.androidagc.control.ELDRow
         android:id="@+id/r2Eld"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -116,7 +116,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/r2Sep" />
 
-    <nl.thymo.virtualagc.control.IndicatorLight
+    <nl.thymo.androidagc.control.IndicatorLight
         android:id="@+id/r3Sep"
         android:layout_width="0dp"
         android:layout_height="10dp"
@@ -131,7 +131,7 @@
         app:srcCompat="@mipmap/hseparator"
         tools:ignore="ContentDescription" />
 
-    <nl.thymo.virtualagc.control.ELDRow
+    <nl.thymo.androidagc.control.ELDRow
         android:id="@+id/r3Eld"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

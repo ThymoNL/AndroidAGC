@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="horizontal">
 
-    <nl.thymo.virtualagc.control.ELD
+    <nl.thymo.androidagc.control.ELD
         android:id="@+id/eldSign"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -13,7 +13,7 @@
         android:adjustViewBounds="true"
         app:srcCompat="@mipmap/plusminusoff" />
 
-    <nl.thymo.virtualagc.control.ELD
+    <nl.thymo.androidagc.control.ELD
         android:id="@+id/eld1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -21,7 +21,7 @@
         android:adjustViewBounds="true"
         app:srcCompat="@mipmap/a7seg_0" />
 
-    <nl.thymo.virtualagc.control.ELD
+    <nl.thymo.androidagc.control.ELD
         android:id="@+id/eld2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
         android:adjustViewBounds="true"
         app:srcCompat="@mipmap/a7seg_0" />
 
-    <nl.thymo.virtualagc.control.ELD
+    <nl.thymo.androidagc.control.ELD
         android:id="@+id/eld3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
         android:adjustViewBounds="true"
         app:srcCompat="@mipmap/a7seg_0" />
 
-    <nl.thymo.virtualagc.control.ELD
+    <nl.thymo.androidagc.control.ELD
         android:id="@+id/eld4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
         android:adjustViewBounds="true"
         app:srcCompat="@mipmap/a7seg_0" />
 
-    <nl.thymo.virtualagc.control.ELD
+    <nl.thymo.androidagc.control.ELD
         android:id="@+id/eld5"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

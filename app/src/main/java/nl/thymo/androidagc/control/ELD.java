@@ -1,10 +1,10 @@
-package nl.thymo.virtualagc.control;
+package nl.thymo.androidagc.control;
 
 import android.content.Context;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 
-import nl.thymo.virtualagc.R;
+import nl.thymo.androidagc.R;
 
 /**
  * Created by thymo on 05/03/18.

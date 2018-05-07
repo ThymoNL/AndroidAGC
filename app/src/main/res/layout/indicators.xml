@@ -12,7 +12,7 @@
         android:orientation="vertical"
         android:layout_weight="0.5">
 
-        <nl.thymo.virtualagc.control.IndicatorLight
+        <nl.thymo.androidagc.control.IndicatorLight
             android:id="@+id/uplinkLight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -20,7 +20,7 @@
             android:adjustViewBounds="true"
             app:srcCompat="@mipmap/uplinkactyoff" />
 
-        <nl.thymo.virtualagc.control.IndicatorLight
+        <nl.thymo.androidagc.control.IndicatorLight
             android:id="@+id/attLight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -28,7 +28,7 @@
             android:adjustViewBounds="true"
             app:srcCompat="@mipmap/noattoff" />
 
-        <nl.thymo.virtualagc.control.IndicatorLight
+        <nl.thymo.androidagc.control.IndicatorLight
             android:id="@+id/stbyLight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
             android:adjustViewBounds="true"
             app:srcCompat="@mipmap/stbyoff" />
 
-        <nl.thymo.virtualagc.control.IndicatorLight
+        <nl.thymo.androidagc.control.IndicatorLight
             android:id="@+id/keyrelLight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
             android:adjustViewBounds="true"
             app:srcCompat="@mipmap/keyreloff" />
 
-        <nl.thymo.virtualagc.control.IndicatorLight
+        <nl.thymo.androidagc.control.IndicatorLight
             android:id="@+id/oprerrLight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
             android:adjustViewBounds="true"
             app:srcCompat="@mipmap/oprerroff" />
 
-        <nl.thymo.virtualagc.control.IndicatorLight
+        <nl.thymo.androidagc.control.IndicatorLight
             android:id="@+id/priodispLight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
             android:adjustViewBounds="true"
             app:srcCompat="@mipmap/priodispoff" />
 
-        <nl.thymo.virtualagc.control.IndicatorLight
+        <nl.thymo.androidagc.control.IndicatorLight
             android:id="@+id/nodapLight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -75,7 +75,7 @@
         android:orientation="vertical"
         android:layout_weight="0.5">
 
-        <nl.thymo.virtualagc.control.IndicatorLight
+        <nl.thymo.androidagc.control.IndicatorLight
             android:id="@+id/tempLight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -83,7 +83,7 @@
             android:adjustViewBounds="true"
             app:srcCompat="@mipmap/tempoff" />
 
-        <nl.thymo.virtualagc.control.IndicatorLight
+        <nl.thymo.androidagc.control.IndicatorLight
             android:id="@+id/gimballockLight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -91,7 +91,7 @@
             android:adjustViewBounds="true"
             app:srcCompat="@mipmap/gimballockoff" />
 
-        <nl.thymo.virtualagc.control.IndicatorLight
+        <nl.thymo.androidagc.control.IndicatorLight
             android:id="@+id/progLight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -99,7 +99,7 @@
             android:adjustViewBounds="true"
             app:srcCompat="@mipmap/progoff" />
 
-        <nl.thymo.virtualagc.control.IndicatorLight
+        <nl.thymo.androidagc.control.IndicatorLight
             android:id="@+id/restartLight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -107,7 +107,7 @@
             android:adjustViewBounds="true"
             app:srcCompat="@mipmap/restartoff" />
 
-        <nl.thymo.virtualagc.control.IndicatorLight
+        <nl.thymo.androidagc.control.IndicatorLight
             android:id="@+id/trackerLight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -115,7 +115,7 @@
             android:adjustViewBounds="true"
             app:srcCompat="@mipmap/trackeroff" />
 
-        <nl.thymo.virtualagc.control.IndicatorLight
+        <nl.thymo.androidagc.control.IndicatorLight
             android:id="@+id/altLight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -123,7 +123,7 @@
             android:adjustViewBounds="true"
             app:srcCompat="@mipmap/altoff" />
 
-        <nl.thymo.virtualagc.control.IndicatorLight
+        <nl.thymo.androidagc.control.IndicatorLight
             android:id="@+id/velLight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

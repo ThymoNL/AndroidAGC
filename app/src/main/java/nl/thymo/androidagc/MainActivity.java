@@ -7,32 +7,32 @@ import nl.thymo.androidagc.control.ELDPanel;
 import nl.thymo.androidagc.control.IndicatorPanel;
 
 public class MainActivity extends AppCompatActivity {
-    //FIXME: Implement controller
-    private static AGCController controller;
+	//FIXME: Implement controller
+	private static AGCController controller;
 
-    private static DSKYTest dskyTest;
+	private static DSKYTest dskyTest;
 
-    private IndicatorPanel indicatorPanel;
-    private ELDPanel eldPanel;
+	private IndicatorPanel indicatorPanel;
+	private ELDPanel eldPanel;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
 
-        indicatorPanel = findViewById(R.id.indicatorPanel);
-        eldPanel = findViewById(R.id.eldPanel);
+		indicatorPanel = findViewById(R.id.indicatorPanel);
+		eldPanel = findViewById(R.id.eldPanel);
 
-        dskyTest = new DSKYTest(indicatorPanel, eldPanel);
-        dskyTest.start();
+		dskyTest = new DSKYTest(indicatorPanel, eldPanel);
+		dskyTest.start();
 
-        controller = new AGCController(getResources().openRawResource(R.raw.aurora12));
-        controller.initEngine();
-    }
+		controller = new AGCController(getResources().openRawResource(R.raw.aurora12));
+		controller.initEngine();
+	}
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        dskyTest.stop();
-    }
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		dskyTest.stop();
+	}
 }

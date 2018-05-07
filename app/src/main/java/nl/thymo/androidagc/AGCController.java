@@ -17,12 +17,12 @@ import java.io.InputStream;
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
-
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
-
+ *
  * You should have received a copy of the GNU General Public License along
  * with this program; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
@@ -31,6 +31,13 @@ import java.io.InputStream;
 class AGCController implements Runnable {
 	private static final String TAG = "AGCController";
 
+	static {
+		System.loadLibrary("agc_init");
+		System.loadLibrary("agc_engine");
+		System.loadLibrary("agc_engine_init");
+		System.loadLibrary("rfopen");
+	}
+
 	private InputStream pack;
 
 	AGCController(InputStream pack) {
@@ -38,16 +45,9 @@ class AGCController implements Runnable {
 		initStorage();
 	}
 
-	static {
-        System.loadLibrary("agc_init");
-        System.loadLibrary("agc_engine");
-        System.loadLibrary("agc_engine_init");
-        System.loadLibrary("rfopen");
-    }
+	native int init();
 
-    native int init();
-
-    void initEngine() {
+	void initEngine() {
 		int status = init();
 		switch (status) {
 			case 0:
@@ -103,7 +103,7 @@ class AGCController implements Runnable {
 		}
 	}
 
-    public void run() {
+	public void run() {
 
-    }
+	}
 }

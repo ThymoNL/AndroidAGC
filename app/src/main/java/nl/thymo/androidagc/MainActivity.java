@@ -12,8 +12,8 @@ public class MainActivity extends AppCompatActivity {
 
     private static DSKYTest dskyTest;
 
-    IndicatorPanel indicatorPanel;
-    ELDPanel eldPanel;
+    private IndicatorPanel indicatorPanel;
+    private ELDPanel eldPanel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

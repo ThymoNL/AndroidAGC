@@ -30,6 +30,7 @@ import java.io.InputStream;
 
 class AGCController implements Runnable {
 	private static final String TAG = "AGCController";
+	private Thread t;
 
 	static {
 		System.loadLibrary("agc_init");
@@ -47,7 +48,9 @@ class AGCController implements Runnable {
 
 	native int init();
 
-	void initEngine() {
+	native void cycle();
+
+	int initEngine() {
 		int status = init();
 		switch (status) {
 			case 0:
@@ -70,7 +73,10 @@ class AGCController implements Runnable {
 				break;
 			case 6:
 				Log.e(TAG, status + ": Core-dump file not found");
+				break;
 		}
+
+		return status;
 	}
 
 	/**
@@ -104,6 +110,15 @@ class AGCController implements Runnable {
 	}
 
 	public void run() {
+		cycle();
+	}
 
+	public void start() {
+		Log.i(TAG, "Starting AGC");
+
+		if (t == null) {
+			t = new Thread(this);
+			t.start();
+		}
 	}
 }

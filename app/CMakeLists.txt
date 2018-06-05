@@ -23,9 +23,15 @@ add_library(
 )
 
 add_library(
-            agc_init
+            agc_control
             SHARED
-            src/main/cpp/agc_init.cpp
+            src/main/cpp/agc_control.cpp
+)
+
+add_library(
+            agc_io
+            SHARED
+            src/main/cpp/agc_io.c
 )
 
 add_library(
@@ -57,7 +63,7 @@ target_link_libraries( agc_engine_init
                        rfopen )
 
 target_link_libraries( # Specifies the target library.
-                       agc_init
+                       agc_control
 
                        agc_engine
                        agc_engine_init

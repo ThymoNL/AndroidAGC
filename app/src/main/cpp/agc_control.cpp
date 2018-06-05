@@ -17,25 +17,34 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef VIRTUALAGC_AGC_INIT_H
-#define VIRTUALAGC_AGC_INIT_H
+#include <android/log.h>
+#include <inttypes.h>
+#include <unistd.h>
+#include "agc_control.h"
+#include "agc_engine.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-#include <jni.h>
-#include "agc_engine.h"
+jint Java_nl_thymo_androidagc_AGCController_init(JNIEnv *env, jobject obj) {
+	return agc_engine_init(&State, "Aurora12.bin", NULL, 1);
+}
 
-#define true 1
-#define false 0
+void Java_nl_thymo_androidagc_AGCController_cycle(JNIEnv *env, jobject obj) {
+	while(1) {
+		if (halt)
+			break;
+		agc_engine(&State);
+		__android_log_print(ANDROID_LOG_VERBOSE, "AGCClock", "Cyclecount: %" PRIu64 "\n", State.CycleCounter);
+		usleep((unsigned int) 11.7);
+	}
+}
 
-static agc_t State;
-
-JNIEXPORT JNICALL jint Java_nl_thymo_androidagc_AGCController_init(JNIEnv *env, jobject obj);
-JNIEXPORT JNICALL void Java_nl_thymo_androidagc_AGCController_cycle(JNIEnv *env, jobject obj);
+void Java_nl_thymo_androidagc_AGCController_halt(JNIEnv* env, jobject obj) {
+	halt = true;
+}
 
 #ifdef __cplusplus
 }
 #endif
-#endif //VIRTUALAGC_AGC_INIT_H

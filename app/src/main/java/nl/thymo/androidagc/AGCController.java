@@ -32,14 +32,14 @@ class AGCController implements Runnable {
 	private static final String TAG = "AGCController";
 	private Thread t;
 
+	private InputStream pack;
+
 	static {
-		System.loadLibrary("agc_init");
+		System.loadLibrary("agc_control");
 		System.loadLibrary("agc_engine");
 		System.loadLibrary("agc_engine_init");
 		System.loadLibrary("rfopen");
 	}
-
-	private InputStream pack;
 
 	AGCController(InputStream pack) {
 		this.pack = pack;
@@ -49,6 +49,8 @@ class AGCController implements Runnable {
 	native int init();
 
 	native void cycle();
+
+	native void halt();
 
 	int initEngine() {
 		int status = init();
@@ -113,12 +115,18 @@ class AGCController implements Runnable {
 		cycle();
 	}
 
-	public void start() {
+	void start() {
 		Log.i(TAG, "Starting AGC");
 
 		if (t == null) {
 			t = new Thread(this);
 			t.start();
 		}
+	}
+
+	void stop() {
+		Log.i(TAG, "Stopping AGC");
+
+		halt();
 	}
 }

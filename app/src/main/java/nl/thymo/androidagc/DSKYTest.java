@@ -48,7 +48,8 @@ class DSKYTest implements Runnable {
 			while (!stop) {
 				// Indicator lights
 				for (int i = 0; i < lights.length; i++) {
-					indicatorPanel.turnOff(lights[i]);
+					int finalI = i;
+					indicatorPanel.post(() -> indicatorPanel.turnOff(lights[finalI]));
 					Thread.sleep(250);
 				}
 				// Display lights

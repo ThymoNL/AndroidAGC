@@ -28,8 +28,9 @@ import nl.thymo.androidagc.control.IndicatorPanel;
 public class MainActivity extends AppCompatActivity {
 	//FIXME: Implement controller
 	private static AGCController controller;
-
 	private static DSKYTest dskyTest;
+
+	private int agcStatus;
 
 	private IndicatorPanel indicatorPanel;
 	private ELDPanel eldPanel;
@@ -43,17 +44,24 @@ public class MainActivity extends AppCompatActivity {
 		eldPanel = findViewById(R.id.eldPanel);
 
 		dskyTest = new DSKYTest(indicatorPanel, eldPanel);
-		dskyTest.start();
 
 		controller = new AGCController(getResources().openRawResource(R.raw.aurora12));
-		if (controller.initEngine() == 0) {
-			controller.start();
-		}
+		agcStatus = controller.initEngine();
+
 	}
 
 	@Override
-	protected void onDestroy() {
-		super.onDestroy();
+	protected void onPause() {
+		super.onPause();
 		dskyTest.stop();
+		controller.stop();
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		dskyTest.start();
+		if (agcStatus == 0)
+			controller.start();
 	}
 }

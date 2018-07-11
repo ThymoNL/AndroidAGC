@@ -1,7 +1,13 @@
 package nl.thymo.androidagc;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import nl.thymo.androidagc.control.ELDPanel;
 import nl.thymo.androidagc.control.IndicatorPanel;
@@ -26,6 +32,9 @@ import nl.thymo.androidagc.control.IndicatorPanel;
  */
 
 public class MainActivity extends AppCompatActivity {
+	public static final String TAG = "MainActivity";
+	public static final int REQUEST_EXTERNAL_STORAGE = 1969;
+
 	//FIXME: Implement controller
 	private static AGCController controller;
 	private static DSKYTest dskyTest;
@@ -46,8 +55,13 @@ public class MainActivity extends AppCompatActivity {
 		dskyTest = new DSKYTest(indicatorPanel, eldPanel);
 
 		controller = new AGCController(getResources().openRawResource(R.raw.aurora12));
-		agcStatus = controller.initEngine();
 
+		if (ContextCompat.checkSelfPermission(this,
+				Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+			ActivityCompat.requestPermissions(this,
+					new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+					REQUEST_EXTERNAL_STORAGE);
+		}
 	}
 
 	@Override
@@ -63,5 +77,26 @@ public class MainActivity extends AppCompatActivity {
 		dskyTest.start();
 		if (agcStatus == 0)
 			controller.start();
+	}
+
+	@Override
+	public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+										   @NonNull int[] grantResults) {
+		switch (requestCode) {
+			case REQUEST_EXTERNAL_STORAGE:
+				if (grantResults.length > 0
+						&& grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+					if (agcStatus != 0)
+						agcStatus = controller.initEngine();
+						if (agcStatus == 0)
+							controller.start();
+				} else {
+					agcStatus = -1;
+				}
+
+			default:
+				Log.wtf(TAG, "Permission granted we didn't request? request code: "
+						+ requestCode);
+		}
 	}
 }

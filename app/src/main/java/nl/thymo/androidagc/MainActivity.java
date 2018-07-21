@@ -86,13 +86,16 @@ public class MainActivity extends AppCompatActivity {
 			case REQUEST_EXTERNAL_STORAGE:
 				if (grantResults.length > 0
 						&& grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+					Log.i(TAG, "Storage permission granted.");
 					if (agcStatus != 0)
 						agcStatus = controller.initEngine();
 						if (agcStatus == 0)
 							controller.start();
 				} else {
+					Log.w(TAG, "Storage permission denied. AGC can't run.");
 					agcStatus = -1;
 				}
+				break;
 
 			default:
 				Log.wtf(TAG, "Permission granted we didn't request? request code: "

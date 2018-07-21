@@ -118,7 +118,7 @@ class AGCController implements Runnable {
 	void start() {
 		Log.i(TAG, "Starting AGC");
 
-		if (t == null) {
+		if (t == null || !t.isAlive()) {
 			t = new Thread(this);
 			t.start();
 		}

@@ -39,6 +39,7 @@ void Java_nl_thymo_androidagc_AGCController_cycle(JNIEnv *env, jobject obj) {
 		__android_log_print(ANDROID_LOG_VERBOSE, "AGCClock", "Cyclecount: %" PRIu64 "\n", State.CycleCounter);
 		usleep((unsigned int) 11.7);
 	}
+	halt = false;
 }
 
 void Java_nl_thymo_androidagc_AGCController_halt(JNIEnv* env, jobject obj) {

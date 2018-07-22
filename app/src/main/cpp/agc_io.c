@@ -29,6 +29,9 @@ void ChannelOutput(agc_t *State, int Channel, int Value) {
 		case 011:
 			handleIndicator(Value);
 			break;
+		case 0163:
+			//TODO: Implement
+			break;
 		default:
 			// Ignore other channels
 			break;

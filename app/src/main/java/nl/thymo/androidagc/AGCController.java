@@ -46,11 +46,11 @@ class AGCController implements Runnable {
 		initStorage();
 	}
 
-	native int init();
+	private native int init();
 
-	native void cycle();
+	private native void cycle();
 
-	native void halt();
+	private native void halt();
 
 	int initEngine() {
 		int status = init();

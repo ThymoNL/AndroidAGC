@@ -17,3 +17,44 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
+#include "agc_io.h"
+#include "agc_engine.h"
+
+void ChannelOutput(agc_t *State, int Channel, int Value) {
+
+	switch (Channel) {
+		case 010:
+			handleDisplay(Value);
+			break;
+		case 011:
+			handleIndicator(Value);
+			break;
+		default:
+			// Ignore other channels
+			break;
+	}
+}
+
+int ChannelInput(agc_t *State) {
+	return 0;
+}
+
+void ChannelRoutine(agc_t *State) {
+	return;
+}
+
+void ShiftToDeda(agc_t *State, int data) {
+	return;
+}
+
+void handleIndicator(int value) {
+	jclass controller = (*IOenv)->FindClass(IOenv, "nl/thymo/androidagc/AGCController");
+	jmethodID methodID = (*IOenv)->GetMethodID(IOenv, controller, "handleIndicator", "(I)V");
+	(*IOenv)->CallVoidMethod(IOenv, instance, methodID, value);
+}
+
+void handleDisplay(int value) {
+	jclass controller = (*IOenv)->FindClass(IOenv, "nl/thymo/androidagc/AGCController");
+	jmethodID methodID = (*IOenv)->GetMethodID(IOenv, controller, "handleDisplay", "(I)V");
+	(*IOenv)->CallVoidMethod(IOenv, instance, methodID, value);
+}

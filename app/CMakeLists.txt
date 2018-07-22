@@ -62,12 +62,17 @@ target_link_libraries( agc_engine_init
                        agc_engine
                        rfopen )
 
+target_link_libraries( agc_engine
+
+                       agc_io )
+
 target_link_libraries( # Specifies the target library.
                        agc_control
 
                        agc_engine
                        agc_engine_init
                        rfopen
+                       agc_io
 
                        # Links the target library to the log library
                        # included in the NDK.

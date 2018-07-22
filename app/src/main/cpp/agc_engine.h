@@ -562,12 +562,11 @@ double GetSP (int *Ptr, int Scale);
 double GetUSP (int *Ptr, int Scale);
 
 // API for yaAGC-to-peripheral communications.
-//TODO: Write implementations
-void ChannelOutput (agc_t * State, int Channel, int Value){}
-int ChannelInput (agc_t * State){return 0;}
-void ChannelRoutine (agc_t *State){}
+void ChannelOutput (agc_t * State, int Channel, int Value);
+int ChannelInput (agc_t * State);
+void ChannelRoutine (agc_t *State);
 void ChannelRoutineGeneric (void *State, void (*UpdatePeripherals) (void *, Client_t *));
-void ShiftToDeda (agc_t *State, int Data){}
+void ShiftToDeda (agc_t *State, int Data);
 
 #endif // AGC_ENGINE_H
 

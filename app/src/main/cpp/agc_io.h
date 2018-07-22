@@ -17,25 +17,23 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef VIRTUALAGC_AGC_INIT_H
-#define VIRTUALAGC_AGC_INIT_H
+#ifndef ANDROIDAGC_AGC_IO_H
+#define ANDROIDAGC_AGC_IO_H
+
+#include <jni.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-#include <jni.h>
-#include <stdbool.h>
-#include "agc_engine.h"
+JNIEnv *IOenv;
+jobject instance;
 
-static agc_t State;
-bool halt = false;
-
-JNIEXPORT JNICALL jint Java_nl_thymo_androidagc_AGCController_init(JNIEnv *env, jobject obj);
-JNIEXPORT JNICALL void Java_nl_thymo_androidagc_AGCController_cycle(JNIEnv *env, jobject obj);
-JNIEXPORT JNICALL void Java_nl_thymo_androidagc_AGCController_halt(JNIEnv *env, jobject obj);
+void handleDisplay(int value);
+void handleIndicator(int value);
 
 #ifdef __cplusplus
 }
 #endif
-#endif //VIRTUALAGC_AGC_INIT_H
+
+#endif //ANDROIDAGC_AGC_IO_H

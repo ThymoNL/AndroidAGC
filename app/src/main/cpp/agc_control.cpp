@@ -22,17 +22,23 @@
 #include <unistd.h>
 #include "agc_control.h"
 #include "agc_engine.h"
+#include "agc_io.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 jint Java_nl_thymo_androidagc_AGCController_init(JNIEnv *env, jobject obj) {
+	IOenv = env;
+	instance = obj;
 	return agc_engine_init(&State, "Aurora12.bin", NULL, 1);
 }
 
 void Java_nl_thymo_androidagc_AGCController_cycle(JNIEnv *env, jobject obj) {
-	while(1) {
+	IOenv = env;
+	instance = obj;
+
+	while (1) {
 		if (halt)
 			break;
 		agc_engine(&State);

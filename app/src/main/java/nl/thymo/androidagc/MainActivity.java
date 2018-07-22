@@ -54,13 +54,14 @@ public class MainActivity extends AppCompatActivity {
 
 		dskyTest = new DSKYTest(indicatorPanel, eldPanel);
 
-		controller = new AGCController(getResources().openRawResource(R.raw.aurora12));
-
 		if (ContextCompat.checkSelfPermission(this,
 				Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
 			ActivityCompat.requestPermissions(this,
 					new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
 					REQUEST_EXTERNAL_STORAGE);
+		} else {
+			controller = new AGCController(getResources().openRawResource(R.raw.aurora12));
+			controller.initEngine();
 		}
 	}
 

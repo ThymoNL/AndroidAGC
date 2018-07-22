@@ -129,4 +129,14 @@ class AGCController implements Runnable {
 
 		halt();
 	}
+
+	private void handleIndicator(int value) {
+		//TODO: Implement
+		Log.i(TAG, "Got indicator update: data = " + value);
+	}
+
+	private void handleDisplay(int value) {
+		//TODO: Implement
+		Log.i(TAG, "Got display update: data = " + value);
+	}
 }

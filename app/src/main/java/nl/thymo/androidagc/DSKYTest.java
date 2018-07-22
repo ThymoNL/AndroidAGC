@@ -102,7 +102,7 @@ class DSKYTest implements Runnable {
 	void start() {
 		Log.i(TAG, "Starting test");
 		stop = false;
-		if (t == null) {
+		if (t == null || !t.isAlive()) {
 			t = new Thread(this);
 			t.start();
 		}

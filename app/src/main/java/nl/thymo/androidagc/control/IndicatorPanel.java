@@ -149,7 +149,7 @@ public class IndicatorPanel extends LinearLayout {
 	}
 
 	public void standby(boolean off) {
-		displayOn = off;
+		displayOn = !off;
 
 		// Refresh indicator states to reflect standby
 		uplinkLight.setState(uplinkLight.getState());

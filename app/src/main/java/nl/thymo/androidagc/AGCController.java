@@ -130,13 +130,37 @@ class AGCController implements Runnable {
 		halt();
 	}
 
+	private static final int ANUN_PAIR = 12;
+	private static final int PROG_PAIR = 11;
+	private static final int VERB_PAIR = 10;
+	private static final int NOUN_PAIR = 9;
+	private static final int R1D1_PAIR = 8;
+	private static final int R1D23_PAIR = 7;
+	private static final int R1D45_PAIR = 6;
+	private static final int R2D12_PAIR = 5;
+	private static final int R2D34_PAIR = 4;
+	private static final int R23D51_PAIR = 3;
+	private static final int R3D23_PAIR = 2;
+	private static final int R3D45_PAIR = 1;
+
+	private static final int DSKY_BLANK = 0;
+	private static final int DSKY_ZERO = 21;
+	private static final int DSKY_ONE = 3;
+	private static final int DSKY_TWO = 25;
+	private static final int DSKY_THREE = 27;
+	private static final int DSKY_FOUR = 15;
+	private static final int DSKY_FIVE = 30;
+	private static final int DSKY_SIX = 28;
+	private static final int DSKY_SEVEN = 19;
+	private static final int DSKY_EIGHT = 29;
+	private static final int DSKY_NINE = 31;
+
 	private void handleIndicator(int value) {
-		//TODO: Implement
-		Log.d(TAG, "Got indicator update: data = " + value);
+		Log.d(TAG, "Got indicator update: data = " + Integer.toBinaryString(value));
 	}
 
 	private void handleDisplay(int value) {
 		//TODO: Implement
-		Log.d(TAG, "Got display update: data = " + value);
+		Log.d(TAG, "Got display update: data = " + Integer.toBinaryString(value));
 	}
 }

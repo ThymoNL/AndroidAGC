@@ -35,6 +35,7 @@ jint Java_nl_thymo_androidagc_AGCController_init(JNIEnv *env, jobject obj) {
 }
 
 void Java_nl_thymo_androidagc_AGCController_cycle(JNIEnv *env, jobject obj) {
+	// Save JNI info so IO can call Java code
 	IOenv = env;
 	instance = obj;
 

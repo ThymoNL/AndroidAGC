@@ -31,6 +31,7 @@ jobject instance;
 
 void handleDisplay(int value);
 void handleIndicator(int value);
+void handleChannel163(int value);
 
 #ifdef __cplusplus
 }

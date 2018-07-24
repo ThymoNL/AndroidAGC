@@ -163,4 +163,14 @@ class AGCController implements Runnable {
 		//TODO: Implement
 		Log.d(TAG, "Got display update: data = " + Integer.toBinaryString(value));
 	}
+
+	private void handleChannel163(int value) {
+		Log.d(TAG, "Got Ch163 update: data = " + Integer.toBinaryString(value));
+
+		if ((value & 24576) == 24576) {
+			if ((value & 256) == 256) {
+
+			}
+		}
+	}
 }

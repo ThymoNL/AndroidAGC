@@ -30,7 +30,7 @@ void ChannelOutput(agc_t *State, int Channel, int Value) {
 			handleIndicator(Value);
 			break;
 		case 0163:
-			//TODO: Implement
+			handleChannel163(Value);
 			break;
 		default:
 			// Ignore other channels
@@ -59,5 +59,11 @@ void handleIndicator(int value) {
 void handleDisplay(int value) {
 	jclass controller = (*IOenv)->FindClass(IOenv, "nl/thymo/androidagc/AGCController");
 	jmethodID methodID = (*IOenv)->GetMethodID(IOenv, controller, "handleDisplay", "(I)V");
+	(*IOenv)->CallVoidMethod(IOenv, instance, methodID, value);
+}
+
+void handleChannel163(int value) {
+	jclass controller = (*IOenv)->FindClass(IOenv, "nl/thymo/androidagc/AGCController");
+	jmethodID methodID = (*IOenv)->GetMethodID(IOenv, controller, "handleChannel163", "(I)V");
 	(*IOenv)->CallVoidMethod(IOenv, instance, methodID, value);
 }

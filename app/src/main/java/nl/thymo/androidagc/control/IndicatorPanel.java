@@ -28,6 +28,8 @@ import nl.thymo.androidagc.R;
  */
 
 public class IndicatorPanel extends LinearLayout {
+	private boolean displayOn;
+
 	private IndicatorLight uplinkLight, attLight, stbyLight, keyrelLight, oprerrLight,
 			priodispLight, nodapLight, tempLight, gimballockLight, progLight, restartLight,
 			trackerLight, altLight, velLight;
@@ -87,6 +89,8 @@ public class IndicatorPanel extends LinearLayout {
 		trackerLight.setResources(R.mipmap.trackeron, R.mipmap.trackeroff);
 		altLight.setResources(R.mipmap.alton, R.mipmap.altoff);
 		velLight.setResources(R.mipmap.velon, R.mipmap.veloff);
+
+		displayOn = true;
 	}
 
 	public void turnOn(Indicator light) {
@@ -97,51 +101,69 @@ public class IndicatorPanel extends LinearLayout {
 		setState(light, false);
 	}
 
-	private void setState(Indicator light, boolean state) {
+	public void setState(Indicator light, boolean state) {
 		switch (light) {
 			case UPLINK:
-				uplinkLight.setState(state);
+				uplinkLight.setState(state & displayOn);
 				break;
 			case NOATT:
-				attLight.setState(state);
+				attLight.setState(state & displayOn);
 				break;
 			case STBY:
-				stbyLight.setState(state);
+				stbyLight.setState(state); // Will need to be on if in standby
 				break;
 			case KEYREL:
-				keyrelLight.setState(state);
+				keyrelLight.setState(state & displayOn);
 				break;
 			case OPRERR:
-				oprerrLight.setState(state);
+				oprerrLight.setState(state & displayOn);
 				break;
 			case PRIODISP:
-				priodispLight.setState(state);
+				priodispLight.setState(state & displayOn);
 				break;
 			case NODAP:
-				nodapLight.setState(state);
+				nodapLight.setState(state & displayOn);
 				break;
 			case TEMP:
-				tempLight.setState(state);
+				tempLight.setState(state); // Is OR'd with signal from IMU
 				break;
 			case GIMBALLOCK:
-				gimballockLight.setState(state);
+				gimballockLight.setState(state & displayOn);
 				break;
 			case PROG:
-				progLight.setState(state);
+				progLight.setState(state & displayOn);
 				break;
 			case RESTART:
-				restartLight.setState(state);
+				restartLight.setState(state & displayOn);
 				break;
 			case TRACKER:
-				trackerLight.setState(state);
+				trackerLight.setState(state & displayOn);
 				break;
 			case ALT:
-				altLight.setState(state);
+				altLight.setState(state & displayOn);
 				break;
 			case VEL:
-				velLight.setState(state);
+				velLight.setState(state & displayOn);
 				break;
 		}
+	}
+
+	public void standby(boolean off) {
+		displayOn = off;
+
+		// Refresh indicator states to reflect standby
+		uplinkLight.setState(uplinkLight.getState());
+		attLight.setState(attLight.getState());
+		keyrelLight.setState(keyrelLight.getState());
+		oprerrLight.setState(oprerrLight.getState());
+		priodispLight.setState(priodispLight.getState());
+		nodapLight.setState(nodapLight.getState());
+		gimballockLight.setState(gimballockLight.getState());
+		progLight.setState(progLight.getState());
+		restartLight.setState(restartLight.getState());
+		trackerLight.setState(trackerLight.getState());
+		altLight.setState(altLight.getState());
+		velLight.setState(velLight.getState());
 	}
 
 	public enum Indicator {

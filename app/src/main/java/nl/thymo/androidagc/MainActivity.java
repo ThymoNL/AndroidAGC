@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 		indicatorPanel = findViewById(R.id.indicatorPanel);
 		eldPanel = findViewById(R.id.eldPanel);
 
-		dskyTest = new DSKYTest(indicatorPanel, eldPanel);
+		//dskyTest = new DSKYTest(indicatorPanel, eldPanel);
 
 		if (ContextCompat.checkSelfPermission(this,
 				Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
@@ -60,7 +60,8 @@ public class MainActivity extends AppCompatActivity {
 					new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
 					REQUEST_EXTERNAL_STORAGE);
 		} else {
-			controller = new AGCController(getResources().openRawResource(R.raw.aurora12));
+			controller = new AGCController(getResources().openRawResource(R.raw.aurora12),
+					indicatorPanel, eldPanel);
 			controller.initEngine();
 		}
 	}
@@ -68,14 +69,14 @@ public class MainActivity extends AppCompatActivity {
 	@Override
 	protected void onPause() {
 		super.onPause();
-		dskyTest.stop();
+		//dskyTest.stop();
 		controller.stop();
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
-		dskyTest.start();
+		//dskyTest.start();
 		if (agcStatus == 0)
 			controller.start();
 	}

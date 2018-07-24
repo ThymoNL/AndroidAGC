@@ -10,7 +10,9 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import nl.thymo.androidagc.control.ELDPanel;
+import nl.thymo.androidagc.control.ELDPanel.ELDIndicator;
 import nl.thymo.androidagc.control.IndicatorPanel;
+import nl.thymo.androidagc.control.IndicatorPanel.Indicator;
 
 /**
  * AndroidAGC
@@ -165,20 +167,49 @@ class AGCController implements Runnable {
 
 	private void handleIndicator(int value) {
 		Log.d(TAG, "Got indicator update: data = " + Integer.toBinaryString(value));
+
+		eldPanel.setIndicator(ELDIndicator.ACTY, 2 == (2 & value));
+		indicatorPanel.setState(Indicator.UPLINK, 4 == (4 & value));
+		// Other lights are handled by channel 163
 	}
 
 	private void handleDisplay(int value) {
-		//TODO: Implement
 		Log.d(TAG, "Got display update: data = " + Integer.toBinaryString(value));
+
+		// TODO: Handle relay codes
+
+		if (24576 == (24576 & value)) {
+			value &= 511; // Mask latch selector
+			indicatorPanel.setState(Indicator.PRIODISP, 1 == (1 & value));
+			indicatorPanel.setState(Indicator.NODAP, 2 == (2 & value));
+			indicatorPanel.setState(Indicator.VEL, 4 == (4 & value));
+			indicatorPanel.setState(Indicator.NOATT, 8 == (8 & value));
+			indicatorPanel.setState(Indicator.ALT, 16 == (16 & value));
+			indicatorPanel.setState(Indicator.GIMBALLOCK, 32 == (32 & value));
+			indicatorPanel.setState(Indicator.TRACKER, 128 == (128 & value));
+			indicatorPanel.setState(Indicator.PROG, 256 == (256 & value));
+		}
 	}
 
 	private void handleChannel163(int value) {
 		Log.d(TAG, "Got Ch163 update: data = " + Integer.toBinaryString(value));
 
-		if ((value & 24576) == 24576) {
-			if ((value & 256) == 256) {
+		// Logical OR between software<->hardware signal
+		indicatorPanel.setState(Indicator.TEMP, 8 == (8 & value));
 
-			}
-		}
+		// Flashing modulated by AGC engine
+		indicatorPanel.setState(Indicator.KEYREL, 16 == (16 & value));
+		indicatorPanel.setState(Indicator.OPRERR, 64 == (64 & value));
+
+		// V/N FLASH
+		eldPanel.setIndicator(ELDIndicator.VERB, 32 == (32 & value));
+		eldPanel.setIndicator(ELDIndicator.NOUN, 32 == (32 & value));
+
+		indicatorPanel.setState(Indicator.RESTART, 128 == (128 & value));
+		indicatorPanel.setState(Indicator.STBY, 256 == (256 & value));
+
+		// DSKY ELDs on/off
+		eldPanel.standby(512 == (512 & value));
+		indicatorPanel.standby(512 == (512 & value));
 	}
 }

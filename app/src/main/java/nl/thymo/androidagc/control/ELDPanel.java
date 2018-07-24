@@ -27,7 +27,8 @@ import nl.thymo.androidagc.R;
  */
 
 public class ELDPanel extends ConstraintLayout {
-	//TODO: Convert horizontal separators to IndicatorLight (for P06)
+	private boolean displayOn;
+
 	private IndicatorLight eldActy, eldProg, eldVerb, eldNoun, r1Sep, r2Sep, r3Sep;
 	private ELDPair progPair, verbPair, nounPair;
 	private ELDRow r1Eld, r2Eld, r3Eld;
@@ -74,6 +75,8 @@ public class ELDPanel extends ConstraintLayout {
 		r1Sep.setResources(R.mipmap.hseparatoron, R.mipmap.hseparator);
 		r2Sep.setResources(R.mipmap.hseparatoron, R.mipmap.hseparator);
 		r3Sep.setResources(R.mipmap.hseparatoron, R.mipmap.hseparator);
+
+		displayOn = true;
 	}
 
 	public void turnOn(ELDIndicator light) {
@@ -84,28 +87,28 @@ public class ELDPanel extends ConstraintLayout {
 		setIndicator(light, false);
 	}
 
-	private void setIndicator(ELDIndicator light, boolean state) {
+	public void setIndicator(ELDIndicator light, boolean state) {
 		switch (light) {
 			case ACTY:
-				eldActy.setState(state);
+				eldActy.setState(state & displayOn);
 				break;
 			case PROG:
-				eldProg.setState(state);
+				eldProg.setState(state & displayOn);
 				break;
 			case VERB:
-				eldVerb.setState(state);
+				eldVerb.setState(state & displayOn);
 				break;
 			case NOUN:
-				eldNoun.setState(state);
+				eldNoun.setState(state & displayOn);
 				break;
 			case R1SEP:
-				r1Sep.setState(state);
+				r1Sep.setState(state & displayOn);
 				break;
 			case R2SEP:
-				r2Sep.setState(state);
+				r2Sep.setState(state & displayOn);
 				break;
 			case R3SEP:
-				r3Sep.setState(state);
+				r3Sep.setState(state & displayOn);
 				break;
 		}
 	}
@@ -130,6 +133,25 @@ public class ELDPanel extends ConstraintLayout {
 			case NOUN:
 				nounPair.set(s);
 				break;
+		}
+	}
+
+	public void standby(boolean off) {
+		displayOn = !off;
+		if (!off) {
+			r1Sep.turnOn();
+			r2Sep.turnOn();
+			r3Sep.turnOn();
+			eldProg.turnOn();
+			eldVerb.turnOn();
+			eldNoun.turnOn();
+		} else {
+			r1Sep.turnOff();
+			r2Sep.turnOff();
+			r3Sep.turnOff();
+			eldVerb.turnOff();
+			eldNoun.turnOff();
+			eldActy.turnOff();
 		}
 	}
 

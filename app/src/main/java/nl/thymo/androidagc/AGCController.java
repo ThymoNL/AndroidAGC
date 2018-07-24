@@ -9,6 +9,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+import nl.thymo.androidagc.control.ELDPanel;
+import nl.thymo.androidagc.control.IndicatorPanel;
+
 /**
  * AndroidAGC
  * Copyright © 2018 Thymo van Beers
@@ -34,6 +37,9 @@ class AGCController implements Runnable {
 
 	private InputStream pack;
 
+	private IndicatorPanel indicatorPanel;
+	private ELDPanel eldPanel;
+
 	static {
 		System.loadLibrary("agc_control");
 		System.loadLibrary("agc_engine");
@@ -41,8 +47,10 @@ class AGCController implements Runnable {
 		System.loadLibrary("rfopen");
 	}
 
-	AGCController(InputStream pack) {
+	AGCController(InputStream pack, IndicatorPanel indicatorPanel, ELDPanel eldPanel) {
 		this.pack = pack;
+		this.indicatorPanel = indicatorPanel;
+		this.eldPanel = eldPanel;
 		initStorage();
 	}
 

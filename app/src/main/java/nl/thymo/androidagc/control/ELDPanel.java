@@ -27,10 +27,10 @@ import nl.thymo.androidagc.R;
  */
 
 public class ELDPanel extends ConstraintLayout {
-	private boolean displayOn;
+	private boolean displayOn, r1signPlus, r1signMin, r2signPlus, r2signMin, r3signPlus, r3signMin;
 
 	private IndicatorLight eldActy, eldProg, eldVerb, eldNoun, r1Sep, r2Sep, r3Sep;
-	private ELDPair progPair, verbPair, nounPair;
+	private ELDPair modePair, verbPair, nounPair;
 	private ELDRow r1Eld, r2Eld, r3Eld;
 
 	public ELDPanel(Context context) {
@@ -57,7 +57,7 @@ public class ELDPanel extends ConstraintLayout {
 		eldProg = findViewById(R.id.eldProg);
 		eldVerb = findViewById(R.id.eldVerb);
 		eldNoun = findViewById(R.id.eldNoun);
-		progPair = findViewById(R.id.progPair);
+		modePair = findViewById(R.id.modePair);
 		verbPair = findViewById(R.id.verbPair);
 		nounPair = findViewById(R.id.nounPair);
 		r1Eld = findViewById(R.id.r1Eld);
@@ -77,6 +77,12 @@ public class ELDPanel extends ConstraintLayout {
 		r3Sep.setResources(R.mipmap.hseparatoron, R.mipmap.hseparator);
 
 		displayOn = true;
+		r1signPlus = false;
+		r2signPlus = false;
+		r3signPlus = false;
+		r1signMin = false;
+		r2signMin = false;
+		r3signMin = false;
 	}
 
 	public void turnOn(ELDIndicator light) {
@@ -114,18 +120,126 @@ public class ELDPanel extends ConstraintLayout {
 	}
 
 	public void setRow(String s, ELDDigitRow select) {
+		String current, update;
+		char sign;
 		switch (select) {
-			case R1:
-				r1Eld.set(s);
+			case R1D1:
+				current = r1Eld.get();
+				update = current.substring(0, 1) + s + current.substring(2);
+				r1Eld.set(update);
 				break;
-			case R2:
-				r2Eld.set(s);
+			case R1D23:
+				current = r1Eld.get();
+
+				sign = s.charAt(0);
+				if (sign == '|') {
+					r1signPlus = false;
+					if (r1signMin)
+						sign = '-';
+				} else if (sign == '+') {
+					r1signPlus = true;
+				} else {
+					throw new IllegalArgumentException("Sign field does not contain valid data!");
+				}
+				update = sign + current.substring(1, 2) + s.substring(1)
+						+ current.substring(4);
+
+				r1Eld.set(update);
 				break;
-			case R3:
-				r3Eld.set(s);
+			case R1D45:
+				current = r1Eld.get();
+
+				sign = s.charAt(0);
+				if (sign == '|') {
+					r1signMin = false;
+					if (r1signPlus)
+						sign = '+'; // TODO: Check if this is correct
+				} else if (sign == '-') {
+					r1signMin = true;
+				} else {
+					throw new IllegalArgumentException("Sign field does not contain valid data!");
+				}
+				update = sign + current.substring(1, 4) + s.substring(1);
+
+				r1Eld.set(update);
 				break;
-			case PROG:
-				progPair.set(s);
+			case R2D12:
+				current = r2Eld.get();
+
+				sign = s.charAt(0);
+				if (sign == '|') {
+					r2signPlus = false;
+					if (r2signMin)
+						sign = '-';
+				} else if (sign == '+') {
+					r2signPlus = true;
+				} else {
+					throw new IllegalArgumentException("Sign field does not contain valid data!");
+				}
+				update = sign + s.substring(1) + current.substring(3);
+
+				r2Eld.set(update);
+				break;
+			case R2D34:
+				current = r2Eld.get();
+
+				sign = s.charAt(0);
+				if (sign == '|') {
+					r2signMin = false;
+					if (r2signPlus)
+						sign = '+'; // TODO: Check if this is correct
+				} else if (sign == '-') {
+					r2signMin = true;
+				} else {
+					throw new IllegalArgumentException("Sign field does not contain valid data!");
+				}
+				update = sign + current.substring(1, 3) + s.substring(1) + current.substring(5);
+
+				r2Eld.set(update);
+				break;
+			case R23D51:
+				current = r2Eld.get();
+				update = current.substring(0, 4) + s.charAt(0);
+				r2Eld.set(update);
+
+				current = r3Eld.get();
+				update = current.charAt(0) + s.charAt(1) + current.substring(2);
+				r3Eld.set(update);
+				break;
+			case R3D23:
+				current = r3Eld.get();
+
+				sign = s.charAt(0);
+				if (sign == '|') {
+					r3signPlus = false;
+					if (r3signMin)
+						sign = '-';
+				} else if (sign == '+') {
+					r3signPlus = true;
+				} else {
+					throw new IllegalArgumentException("Sign field does not contain valid data!");
+				}
+				update = sign + current.substring(1, 2) + s.substring(1) + current.substring(4);
+				r3Eld.set(update);
+				break;
+			case R3D45:
+				current = r3Eld.get();
+
+				sign = s.charAt(0);
+				if (sign == '|') {
+					r3signMin = false;
+					if (r3signPlus)
+						sign = '+'; // TODO: Check if this is correct
+				} else if (sign == '-') {
+					r3signMin = true;
+				} else {
+					throw new IllegalArgumentException("Sign field does not contain valid data!");
+				}
+				update = sign + current.substring(1, 4) + s.substring(1);
+				r3Eld.set(update);
+				break;
+			case MODE:
+				modePair.set(s);
 				break;
 			case VERB:
 				verbPair.set(s);
@@ -160,6 +274,6 @@ public class ELDPanel extends ConstraintLayout {
 	}
 
 	public enum ELDDigitRow {
-		PROG, VERB, NOUN, R1, R2, R3
+		MODE, VERB, NOUN, R1D1, R1D23, R1D45, R2D12, R2D34, R23D51, R3D23, R3D45
 	}
 }

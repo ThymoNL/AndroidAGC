@@ -27,7 +27,7 @@
         app:srcCompat="@mipmap/rprogoff" />
 
     <nl.thymo.androidagc.control.ELDPair
-        android:id="@+id/progPair"
+        android:id="@+id/modePair"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintRight_toRightOf="parent"

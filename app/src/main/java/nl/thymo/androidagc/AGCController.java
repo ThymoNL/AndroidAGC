@@ -188,6 +188,8 @@ class AGCController implements Runnable {
 			indicatorPanel.setState(Indicator.GIMBALLOCK, 32 == (32 & value));
 			indicatorPanel.setState(Indicator.TRACKER, 128 == (128 & value));
 			indicatorPanel.setState(Indicator.PROG, 256 == (256 & value));
+		} else if (PROG_PAIR == (PROG_PAIR & value)) {
+			value &= 511;
 		}
 	}
 

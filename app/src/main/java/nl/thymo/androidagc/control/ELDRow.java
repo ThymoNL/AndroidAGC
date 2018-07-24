@@ -28,6 +28,8 @@ import nl.thymo.androidagc.R;
  */
 
 public class ELDRow extends LinearLayout {
+	private String row;
+
 	private ELD eldSign, eld1, eld2, eld3, eld4, eld5;
 
 	public ELDRow(Context context) {
@@ -64,11 +66,16 @@ public class ELDRow extends LinearLayout {
 	}
 
 	public void set(String row) {
+		this.row = row;
 		eldSign.set(row.charAt(0));
 		eld1.set(row.charAt(1));
 		eld2.set(row.charAt(2));
 		eld3.set(row.charAt(3));
 		eld4.set(row.charAt(4));
 		eld5.set(row.charAt(5));
+	}
+
+	public String get() {
+		return row;
 	}
 }

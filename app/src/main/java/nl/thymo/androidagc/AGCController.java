@@ -140,18 +140,18 @@ class AGCController implements Runnable {
 		halt();
 	}
 
-	private static final int ANUN_PAIR = 12;
-	private static final int PROG_PAIR = 11;
-	private static final int VERB_PAIR = 10;
-	private static final int NOUN_PAIR = 9;
-	private static final int R1D1_PAIR = 8;
-	private static final int R1D23_PAIR = 7;
-	private static final int R1D45_PAIR = 6;
-	private static final int R2D12_PAIR = 5;
-	private static final int R2D34_PAIR = 4;
-	private static final int R23D51_PAIR = 3;
-	private static final int R3D23_PAIR = 2;
-	private static final int R3D45_PAIR = 1;
+	private static final int ANUN_PAIR = 12 << 11;
+	private static final int PROG_PAIR = 11 << 11;
+	private static final int VERB_PAIR = 10 << 11;
+	private static final int NOUN_PAIR = 9 << 11;
+	private static final int R1D1_PAIR = 8 << 11;
+	private static final int R1D23_PAIR = 7 << 11;
+	private static final int R1D45_PAIR = 6 << 11;
+	private static final int R2D12_PAIR = 5 << 11;
+	private static final int R2D34_PAIR = 4 << 11;
+	private static final int R23D51_PAIR = 3 << 11;
+	private static final int R3D23_PAIR = 2 << 11;
+	private static final int R3D45_PAIR = 1 << 11;
 
 	private static final int DSKY_BLANK = 0;
 	private static final int DSKY_ZERO = 21;
@@ -178,7 +178,7 @@ class AGCController implements Runnable {
 
 		// TODO: Handle relay codes
 
-		if (24576 == (24576 & value)) {
+		if (ANUN_PAIR == (ANUN_PAIR & value)) {
 			value &= 511; // Mask latch selector
 			indicatorPanel.setState(Indicator.PRIODISP, 1 == (1 & value));
 			indicatorPanel.setState(Indicator.NODAP, 2 == (2 & value));

@@ -9,7 +9,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+import nl.thymo.androidagc.control.ELD;
 import nl.thymo.androidagc.control.ELDPanel;
+import nl.thymo.androidagc.control.ELDPanel.ELDDigitRow;
 import nl.thymo.androidagc.control.ELDPanel.ELDIndicator;
 import nl.thymo.androidagc.control.IndicatorPanel;
 import nl.thymo.androidagc.control.IndicatorPanel.Indicator;
@@ -140,8 +142,13 @@ class AGCController implements Runnable {
 		halt();
 	}
 
+	private static final int LEFT_DIGIT = 992;
+	private static final int RIGHT_DIGIT = 31;
+	private static final int SIGN_MASK = 1024;
+	private static final int SELECT_MASK = 1023;
+
 	private static final int ANUN_PAIR = 12 << 11;
-	private static final int PROG_PAIR = 11 << 11;
+	private static final int MODE_PAIR = 11 << 11;
 	private static final int VERB_PAIR = 10 << 11;
 	private static final int NOUN_PAIR = 9 << 11;
 	private static final int R1D1_PAIR = 8 << 11;
@@ -176,8 +183,6 @@ class AGCController implements Runnable {
 	private void handleDisplay(int value) {
 		Log.d(TAG, "Got display update: data = " + Integer.toBinaryString(value));
 
-		// TODO: Handle relay codes
-
 		if (ANUN_PAIR == (ANUN_PAIR & value)) {
 			value &= 511; // Mask latch selector
 			indicatorPanel.setState(Indicator.PRIODISP, 1 == (1 & value));
@@ -188,9 +193,95 @@ class AGCController implements Runnable {
 			indicatorPanel.setState(Indicator.GIMBALLOCK, 32 == (32 & value));
 			indicatorPanel.setState(Indicator.TRACKER, 128 == (128 & value));
 			indicatorPanel.setState(Indicator.PROG, 256 == (256 & value));
-		} else if (PROG_PAIR == (PROG_PAIR & value)) {
-			value &= 511;
+		} else if (MODE_PAIR == (MODE_PAIR & value)) {
+			value &= SELECT_MASK;
+			String s = "" + getDigit((value & LEFT_DIGIT) >> 5) +
+					getDigit(value & RIGHT_DIGIT);
+			eldPanel.setRow(s, ELDDigitRow.MODE);
+		} else if (VERB_PAIR == (VERB_PAIR & value)) {
+			value &= SELECT_MASK;
+			String s = "" + getDigit((value & LEFT_DIGIT) >> 5) +
+					getDigit(value & RIGHT_DIGIT);
+			eldPanel.setRow(s, ELDDigitRow.VERB);
+		} else if (NOUN_PAIR == (NOUN_PAIR & value)) {
+			value &= SELECT_MASK;
+			String s = "" + getDigit((value & LEFT_DIGIT) >> 5) +
+					getDigit(value & RIGHT_DIGIT);
+			eldPanel.setRow(s, ELDDigitRow.NOUN);
+		} else if (R1D1_PAIR == (R1D1_PAIR & value)) {
+			value &= SELECT_MASK;
+			eldPanel.setRow("" + getDigit(value & RIGHT_DIGIT),
+					ELDDigitRow.R1D1);
+		} else if (R1D23_PAIR == (R1D23_PAIR & value)) {
+			value &= SELECT_MASK;
+			String s = ((SIGN_MASK == (SIGN_MASK & value)) ? "-" : "|") +
+					getDigit((value & LEFT_DIGIT) >> 5) +
+					getDigit(value & RIGHT_DIGIT);
+			eldPanel.setRow(s, ELDDigitRow.R1D23);
+		} else if (R1D45_PAIR == (R1D45_PAIR & value)) {
+			value &= SELECT_MASK;
+			String s = (SIGN_MASK == (SIGN_MASK & value)) ? "-": "|" +
+					getDigit((value & LEFT_DIGIT) >> 5) +
+					getDigit(value & RIGHT_DIGIT);
+			eldPanel.setRow(s, ELDDigitRow.R1D45);
+		} else if (R2D12_PAIR == (R2D12_PAIR & value)) {
+			value &= SELECT_MASK;
+			String s = ((SIGN_MASK == (SIGN_MASK & value)) ? "-" : "|") +
+					getDigit((value & LEFT_DIGIT) >> 5) +
+					getDigit(value & RIGHT_DIGIT);
+			eldPanel.setRow(s, ELDDigitRow.R2D12);
+		} else if (R2D34_PAIR == (R2D34_PAIR & value)) {
+			value &= SELECT_MASK;
+			String s = (SIGN_MASK == (SIGN_MASK & value)) ? "-": "|" +
+					getDigit((value & LEFT_DIGIT) >> 5) +
+					getDigit(value & RIGHT_DIGIT);
+			eldPanel.setRow(s, ELDDigitRow.R2D34);
+		} else if (R23D51_PAIR == (R23D51_PAIR & value)) {
+			value &= SELECT_MASK;
+			String s = "" + getDigit((value & LEFT_DIGIT) >> 5) +
+					getDigit(value & RIGHT_DIGIT);
+			eldPanel.setRow(s, ELDDigitRow.R23D51);
+		} else if (R3D23_PAIR == (R3D23_PAIR & value)) {
+			value &= SELECT_MASK;
+			String s = ((SIGN_MASK == (SIGN_MASK & value)) ? "-" : "|") +
+					getDigit((value & LEFT_DIGIT) >> 5) +
+					getDigit(value & RIGHT_DIGIT);
+			eldPanel.setRow(s, ELDDigitRow.R3D23);
+		} else if (R3D45_PAIR == (R3D45_PAIR & value)) {
+			value &= SELECT_MASK;
+			String s = ((SIGN_MASK == (SIGN_MASK & value)) ? "-" : "|") +
+					getDigit((value & LEFT_DIGIT) >> 5) +
+					getDigit(value & RIGHT_DIGIT);
+			eldPanel.setRow(s, ELDDigitRow.R3D45);
 		}
+	}
+
+	private char getDigit(int digitcode) {
+		switch (digitcode) {
+			case DSKY_BLANK:
+				return 'x';
+			case DSKY_ZERO:
+				return '0';
+			case DSKY_ONE:
+				return '1';
+			case DSKY_TWO:
+				return '2';
+			case DSKY_THREE:
+				return '3';
+			case DSKY_FOUR:
+				return '4';
+			case DSKY_FIVE:
+				return '5';
+			case DSKY_SIX:
+				return '6';
+			case DSKY_SEVEN:
+				return '7';
+			case DSKY_EIGHT:
+				return '8';
+			case DSKY_NINE:
+				return '9';
+		}
+		throw new IllegalArgumentException("Got invalid digitcode: " + digitcode);
 	}
 
 	private void handleChannel163(int value) {

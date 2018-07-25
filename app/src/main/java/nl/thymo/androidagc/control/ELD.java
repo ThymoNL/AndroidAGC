@@ -26,6 +26,7 @@ import nl.thymo.androidagc.R;
  */
 
 public class ELD extends AppCompatImageView {
+	private boolean isSign;
 
 
 	public ELD(Context context) {
@@ -47,7 +48,14 @@ public class ELD extends AppCompatImageView {
 		// Nothing for now
 	}
 
+	public void setSign(boolean isSign) {
+		this.isSign = isSign;
+	}
+
 	public void set(char c) {
+		if (isSign && !(c == '-' || c == '+' || c == '|'))
+			throw new IllegalArgumentException("Trying to set non-sign as sign!");
+
 		post(() -> {
 			switch (c) {
 				case '-':

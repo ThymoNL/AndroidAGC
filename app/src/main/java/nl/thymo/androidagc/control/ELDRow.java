@@ -63,6 +63,10 @@ public class ELDRow extends LinearLayout {
 		eld3 = findViewById(R.id.eld3);
 		eld4 = findViewById(R.id.eld4);
 		eld5 = findViewById(R.id.eld5);
+
+		eldSign.setSign(true);
+
+		row = "|xxxxx";
 	}
 
 	public void set(String row) {

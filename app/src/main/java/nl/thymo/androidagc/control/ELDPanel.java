@@ -199,11 +199,11 @@ public class ELDPanel extends ConstraintLayout {
 				break;
 			case R23D51:
 				current = r2Eld.get();
-				update = current.substring(0, 4) + s.charAt(0);
+				update = current.substring(0, 5) + s.charAt(0);
 				r2Eld.set(update);
 
 				current = r3Eld.get();
-				update = current.charAt(0) + s.charAt(1) + current.substring(2);
+				update = current.charAt(0) + "" + s.charAt(1) + current.substring(2);
 				r3Eld.set(update);
 				break;
 			case R3D23:

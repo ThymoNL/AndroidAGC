@@ -9,7 +9,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import nl.thymo.androidagc.control.ELD;
 import nl.thymo.androidagc.control.ELDPanel;
 import nl.thymo.androidagc.control.ELDPanel.ELDDigitRow;
 import nl.thymo.androidagc.control.ELDPanel.ELDIndicator;
@@ -46,7 +45,6 @@ class AGCController implements Runnable {
 
 	static {
 		System.loadLibrary("agc_control");
-		System.loadLibrary("agc_engine");
 		System.loadLibrary("agc_engine_init");
 		System.loadLibrary("rfopen");
 	}
@@ -63,6 +61,10 @@ class AGCController implements Runnable {
 	private native void cycle();
 
 	private native void halt();
+
+	private native void sendKey(int keycode);
+
+	private native void pressSby(boolean pressed);
 
 	int initEngine() {
 		int status = init();

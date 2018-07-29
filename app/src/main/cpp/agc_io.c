@@ -39,16 +39,31 @@ void ChannelOutput(agc_t *State, int Channel, int Value) {
 }
 
 int ChannelInput(agc_t *State) {
+	if (ch015) {
+		CpuWriteIO(State, 015, ch015);
+		State->InterruptRequests[5] = 1;
+		ch015 = 0;
+	}
+
+	if (SbyPressed)
+		CpuWriteIO(State, 032, State->InputChannel[032] | 020000);
+	else
+		CpuWriteIO(State, 032, State->InputChannel[032] & 057777);
+
 	return 0;
 }
 
 void ChannelRoutine(agc_t *State) {
-	return;
+	return; // Not used
 }
 
 void ShiftToDeda(agc_t *State, int data) {
-	return;
+	return; // Not used
 }
+
+// Empty functions to prevent build failure
+void UnblockSocket(int SocketNum) {}
+void BacktraceAdd(agc_t *State, int Cause) {}
 
 void handleIndicator(int value) {
 	jclass controller = (*IOenv)->FindClass(IOenv, "nl/thymo/androidagc/AGCController");

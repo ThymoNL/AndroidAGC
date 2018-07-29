@@ -53,6 +53,21 @@ void Java_nl_thymo_androidagc_AGCController_halt(JNIEnv* env, jobject obj) {
 	halt = true;
 }
 
+void Java_nl_thymo_androidagc_AGCController_sendKey(JNIEnv* env, jobject obj, jint keycode) {
+	__android_log_print(ANDROID_LOG_DEBUG, "AGCIO", "Sending keycode: %d", keycode);
+
+	ch015 = keycode;
+}
+
+void Java_nl_thymo_androidagc_AGCController_pressSby(JNIEnv* env, jobject obj, jboolean pressed) {
+	if (pressed)
+		__android_log_print(ANDROID_LOG_DEBUG, "AGCIO", "PRO pressed");
+	else
+		__android_log_print(ANDROID_LOG_DEBUG, "AGCIO", "PRO unpressed");
+
+	SbyPressed = pressed;
+}
+
 #ifdef __cplusplus
 }
 #endif

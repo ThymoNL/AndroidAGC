@@ -29,6 +29,8 @@ extern "C" {
 JNIEnv *IOenv;
 jobject instance;
 
+int ch015 = 0, SbyPressed = 0;
+
 void handleDisplay(int value);
 void handleIndicator(int value);
 void handleChannel163(int value);

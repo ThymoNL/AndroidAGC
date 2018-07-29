@@ -34,6 +34,10 @@ bool halt = false;
 JNIEXPORT JNICALL jint Java_nl_thymo_androidagc_AGCController_init(JNIEnv *env, jobject obj);
 JNIEXPORT JNICALL void Java_nl_thymo_androidagc_AGCController_cycle(JNIEnv *env, jobject obj);
 JNIEXPORT JNICALL void Java_nl_thymo_androidagc_AGCController_halt(JNIEnv *env, jobject obj);
+JNIEXPORT JNICALL void Java_nl_thymo_androidagc_AGCController_sendKey(JNIEnv* env, jobject obj,
+																	  jint keycode);
+JNIEXPORT JNICALL void Java_nl_thymo_androidagc_AGCController_pressSby(JNIEnv* env, jobject obj,
+																	   jboolean pressed);
 
 #ifdef __cplusplus
 }

@@ -115,8 +115,7 @@ int FormIoPacketAGS (int Type, int Data, unsigned char *Packet);
 int ParseIoPacketAGS (unsigned char *Packet, int *Type, int *Data);
 
 int InitializeSocketSystem (void);
-// FIXME: Causes build failure
-void UnblockSocket (int SocketNum){};
+void UnblockSocket (int SocketNum);
 int EstablishSocket (unsigned short portnum, int MaxClients);
 int CallSocket (char *hostname, unsigned short portnum);
 

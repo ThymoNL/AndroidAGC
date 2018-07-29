@@ -8,6 +8,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import nl.thymo.androidagc.control.ELDPanel;
 import nl.thymo.androidagc.control.IndicatorPanel;
@@ -102,6 +103,70 @@ public class MainActivity extends AppCompatActivity {
 			default:
 				Log.wtf(TAG, "Permission granted we didn't request? request code: "
 						+ requestCode);
+		}
+	}
+
+	public void buttonClick(View view) {
+		int id = view.getId();
+
+		switch (id) {
+			case R.id.d0Button:
+				controller.sendKey(020);
+				break;
+			case R.id.d1Button:
+				controller.sendKey(1);
+				break;
+			case R.id.d2Button:
+				controller.sendKey(2);
+				break;
+			case R.id.d3Button:
+				controller.sendKey(3);
+				break;
+			case R.id.d4Button:
+				controller.sendKey(4);
+				break;
+			case R.id.d5Button:
+				controller.sendKey(5);
+				break;
+			case R.id.d6Button:
+				controller.sendKey(6);
+				break;
+			case R.id.d7Button:
+				controller.sendKey(7);
+				break;
+			case R.id.d8Button:
+				controller.sendKey(010);
+				break;
+			case R.id.d9Button:
+				controller.sendKey(011);
+				break;
+			case R.id.verbButton:
+				controller.sendKey(021);
+				break;
+			case R.id.resetButton:
+				controller.sendKey(022);
+				break;
+			case R.id.keyrelButton:
+				controller.sendKey(031);
+				break;
+			case R.id.plusButton:
+				controller.sendKey(032);
+				break;
+			case R.id.minusButton:
+				controller.sendKey(033);
+				break;
+			case R.id.enterButton:
+				controller.sendKey(034);
+				break;
+			case R.id.clearButton:
+				controller.sendKey(036);
+				break;
+			case R.id.nounButton:
+				controller.sendKey(037);
+				break;
+			default:
+				Log.wtf(TAG, "Got invalid id for handler");
+				break;
 		}
 	}
 }

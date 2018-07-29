@@ -63,9 +63,9 @@ class AGCController implements Runnable {
 
 	private native void halt();
 
-	private native void sendKey(int keycode);
+	public native void sendKey(int keycode);
 
-	private native void pressSby(boolean pressed);
+	public native void pressSby(boolean pressed);
 
 	int initEngine() {
 		int status = init();

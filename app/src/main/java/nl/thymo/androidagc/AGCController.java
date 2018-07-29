@@ -34,6 +34,7 @@ import nl.thymo.androidagc.control.IndicatorPanel.Indicator;
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
+@SuppressWarnings("unused")
 class AGCController implements Runnable {
 	private static final String TAG = "AGCController";
 	private Thread t;

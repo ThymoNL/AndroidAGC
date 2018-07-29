@@ -12,7 +12,7 @@ cmake_minimum_required(VERSION 3.4.1)
 
 add_library(
             agc_engine
-            SHARED
+            STATIC
             src/main/cpp/agc_engine.c
 )
 
@@ -30,7 +30,7 @@ add_library(
 
 add_library(
             agc_io
-            SHARED
+            STATIC
             src/main/cpp/agc_io.c
 )
 
@@ -65,6 +65,10 @@ target_link_libraries( agc_engine_init
 target_link_libraries( agc_engine
 
                        agc_io )
+
+target_link_libraries( agc_io
+
+                       agc_engine )
 
 target_link_libraries( # Specifies the target library.
                        agc_control

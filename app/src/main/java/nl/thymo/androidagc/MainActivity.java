@@ -1,6 +1,7 @@
 package nl.thymo.androidagc;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -8,7 +9,10 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
+import android.widget.ImageButton;
 
 import nl.thymo.androidagc.control.ELDPanel;
 import nl.thymo.androidagc.control.IndicatorPanel;
@@ -36,24 +40,31 @@ public class MainActivity extends AppCompatActivity {
 	public static final String TAG = "MainActivity";
 	public static final int REQUEST_EXTERNAL_STORAGE = 1969;
 
-	//FIXME: Implement controller
 	private static AGCController controller;
 	private static DSKYTest dskyTest;
 
 	private int agcStatus;
 
-	private IndicatorPanel indicatorPanel;
-	private ELDPanel eldPanel;
-
+	@SuppressLint("ClickableViewAccessibility") // FIXME: Provide custom view for buttons
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		indicatorPanel = findViewById(R.id.indicatorPanel);
-		eldPanel = findViewById(R.id.eldPanel);
+		IndicatorPanel indicatorPanel = findViewById(R.id.indicatorPanel);
+		ELDPanel eldPanel = findViewById(R.id.eldPanel);
+		ImageButton proButton = findViewById(R.id.proButton);
 
-		//dskyTest = new DSKYTest(indicatorPanel, eldPanel);
+		proButton.setOnTouchListener((v, event) -> {
+			if (event.getAction() == MotionEvent.ACTION_DOWN) {
+				controller.pressSby(true);
+				return true;
+			} else if (event.getAction() == MotionEvent.ACTION_UP) {
+				controller.pressSby(false);
+				return true;
+			}
+			return false;
+		});
 
 		if (ContextCompat.checkSelfPermission(this,
 				Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {

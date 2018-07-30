@@ -263,6 +263,7 @@ public class ELDPanel extends ConstraintLayout {
 			r1Sep.turnOff();
 			r2Sep.turnOff();
 			r3Sep.turnOff();
+			eldProg.turnOff();
 			eldVerb.turnOff();
 			eldNoun.turnOff();
 			eldActy.turnOff();

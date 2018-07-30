@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
 		} else {
 			controller = new AGCController(getResources().openRawResource(R.raw.aurora12),
 					indicatorPanel, eldPanel);
-			controller.initEngine();
+			agcStatus = controller.initEngine();
 		}
 	}
 

@@ -29,7 +29,7 @@ extern "C" {
 JNIEnv *IOenv;
 jobject instance;
 
-int ch015 = 0, SbyPressed = 0;
+int ch015 = 0, SbyPressed = 1;
 
 void handleDisplay(int value);
 void handleIndicator(int value);

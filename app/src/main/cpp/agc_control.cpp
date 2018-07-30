@@ -65,7 +65,7 @@ void Java_nl_thymo_androidagc_AGCController_pressSby(JNIEnv* env, jobject obj, j
 	else
 		__android_log_print(ANDROID_LOG_DEBUG, "AGCIO", "PRO unpressed");
 
-	SbyPressed = pressed;
+	SbyPressed = !pressed;
 }
 
 #ifdef __cplusplus

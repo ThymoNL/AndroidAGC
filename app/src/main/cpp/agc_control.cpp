@@ -28,13 +28,15 @@
 extern "C" {
 #endif
 
-jint Java_nl_thymo_androidagc_AGCController_init(JNIEnv *env, jobject obj) {
+jint Java_nl_thymo_androidagc_AGCController_init(JNIEnv *env, jobject obj)
+{
 	IOenv = env;
 	instance = obj;
 	return agc_engine_init(&State, "Aurora12.bin", NULL, 1);
 }
 
-void Java_nl_thymo_androidagc_AGCController_cycle(JNIEnv *env, jobject obj) {
+void Java_nl_thymo_androidagc_AGCController_cycle(JNIEnv *env, jobject obj)
+{
 	// Save JNI info so IO can call Java code
 	IOenv = env;
 	instance = obj;
@@ -43,23 +45,27 @@ void Java_nl_thymo_androidagc_AGCController_cycle(JNIEnv *env, jobject obj) {
 		if (halt)
 			break;
 		agc_engine(&State);
-		__android_log_print(ANDROID_LOG_VERBOSE, "AGCClock", "Cyclecount: %" PRIu64 "\n", State.CycleCounter);
+		__android_log_print(ANDROID_LOG_VERBOSE, "AGCClock", "Cyclecount: %" PRIu64 "\n",
+							State.CycleCounter);
 		usleep((unsigned int) 11.7);
 	}
 	halt = false;
 }
 
-void Java_nl_thymo_androidagc_AGCController_halt(JNIEnv* env, jobject obj) {
+void Java_nl_thymo_androidagc_AGCController_halt(JNIEnv *env, jobject obj)
+{
 	halt = true;
 }
 
-void Java_nl_thymo_androidagc_AGCController_sendKey(JNIEnv* env, jobject obj, jint keycode) {
+void Java_nl_thymo_androidagc_AGCController_sendKey(JNIEnv *env, jobject obj, jint keycode)
+{
 	__android_log_print(ANDROID_LOG_DEBUG, "AGCIO", "Sending keycode: %d", keycode);
 
 	ch015 = keycode;
 }
 
-void Java_nl_thymo_androidagc_AGCController_pressSby(JNIEnv* env, jobject obj, jboolean pressed) {
+void Java_nl_thymo_androidagc_AGCController_pressSby(JNIEnv *env, jobject obj, jboolean pressed)
+{
 	if (pressed)
 		__android_log_print(ANDROID_LOG_DEBUG, "AGCIO", "PRO pressed");
 	else

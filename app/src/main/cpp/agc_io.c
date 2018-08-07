@@ -20,7 +20,8 @@
 #include "agc_io.h"
 #include "agc_engine.h"
 
-void ChannelOutput(agc_t *State, int Channel, int Value) {
+void ChannelOutput(agc_t *State, int Channel, int Value)
+{
 
 	switch (Channel) {
 		case 010:
@@ -38,7 +39,8 @@ void ChannelOutput(agc_t *State, int Channel, int Value) {
 	}
 }
 
-int ChannelInput(agc_t *State) {
+int ChannelInput(agc_t *State)
+{
 	if (ch015) {
 		CpuWriteIO(State, 015, ch015);
 		State->InterruptRequests[5] = 1;
@@ -53,31 +55,37 @@ int ChannelInput(agc_t *State) {
 	return 0;
 }
 
-void ChannelRoutine(agc_t *State) {
+void ChannelRoutine(agc_t *State)
+{
 	return; // Not used
 }
 
-void ShiftToDeda(agc_t *State, int data) {
+void ShiftToDeda(agc_t *State, int data)
+{
 	return; // Not used
 }
 
 // Empty functions to prevent build failure
 void UnblockSocket(int SocketNum) {}
+
 void BacktraceAdd(agc_t *State, int Cause) {}
 
-void handleIndicator(int value) {
+void handleIndicator(int value)
+{
 	jclass controller = (*IOenv)->FindClass(IOenv, "nl/thymo/androidagc/AGCController");
 	jmethodID methodID = (*IOenv)->GetMethodID(IOenv, controller, "handleIndicator", "(I)V");
 	(*IOenv)->CallVoidMethod(IOenv, instance, methodID, value);
 }
 
-void handleDisplay(int value) {
+void handleDisplay(int value)
+{
 	jclass controller = (*IOenv)->FindClass(IOenv, "nl/thymo/androidagc/AGCController");
 	jmethodID methodID = (*IOenv)->GetMethodID(IOenv, controller, "handleDisplay", "(I)V");
 	(*IOenv)->CallVoidMethod(IOenv, instance, methodID, value);
 }
 
-void handleChannel163(int value) {
+void handleChannel163(int value)
+{
 	jclass controller = (*IOenv)->FindClass(IOenv, "nl/thymo/androidagc/AGCController");
 	jmethodID methodID = (*IOenv)->GetMethodID(IOenv, controller, "handleChannel163", "(I)V");
 	(*IOenv)->CallVoidMethod(IOenv, instance, methodID, value);

@@ -19,12 +19,12 @@
 
 #include <stdio.h>
 
-FILE* rfopen(const char *Filename, const char *mode)
+FILE *rfopen(const char *Filename, const char *mode)
 {
 	const char *dir = "/sdcard/AndroidAGC/";
 	char path[255];
 	snprintf(path, sizeof path, "%s%s", dir, Filename);
-	FILE * rom = fopen(path, mode);
+	FILE *rom = fopen(path, mode);
 
 	return rom;
 }

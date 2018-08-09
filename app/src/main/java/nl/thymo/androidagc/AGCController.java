@@ -148,7 +148,7 @@ class AGCController implements Runnable {
 	private static final int LEFT_DIGIT = 992;
 	private static final int RIGHT_DIGIT = 31;
 	private static final int SIGN_MASK = 1024;
-	private static final int SELECT_MASK = 1023;
+	private static final int SELECT_MASK = 2047;
 
 	private static final int ANUN_PAIR = 12 << 11;
 	private static final int MODE_PAIR = 11 << 11;
@@ -217,25 +217,25 @@ class AGCController implements Runnable {
 					ELDDigitRow.R1D1);
 		} else if (R1D23_PAIR == (R1D23_PAIR & value)) {
 			value &= SELECT_MASK;
-			String s = ((SIGN_MASK == (SIGN_MASK & value)) ? "-" : "|") +
+			String s = ((SIGN_MASK == (SIGN_MASK & value)) ? "+" : "|") +
 					getDigit((value & LEFT_DIGIT) >> 5) +
 					getDigit(value & RIGHT_DIGIT);
 			eldPanel.setRow(s, ELDDigitRow.R1D23);
 		} else if (R1D45_PAIR == (R1D45_PAIR & value)) {
 			value &= SELECT_MASK;
-			String s = (SIGN_MASK == (SIGN_MASK & value)) ? "-": "|" +
+			String s = ((SIGN_MASK == (SIGN_MASK & value)) ? "-": "|") +
 					getDigit((value & LEFT_DIGIT) >> 5) +
 					getDigit(value & RIGHT_DIGIT);
 			eldPanel.setRow(s, ELDDigitRow.R1D45);
 		} else if (R2D12_PAIR == (R2D12_PAIR & value)) {
 			value &= SELECT_MASK;
-			String s = ((SIGN_MASK == (SIGN_MASK & value)) ? "-" : "|") +
+			String s = ((SIGN_MASK == (SIGN_MASK & value)) ? "+" : "|") +
 					getDigit((value & LEFT_DIGIT) >> 5) +
 					getDigit(value & RIGHT_DIGIT);
 			eldPanel.setRow(s, ELDDigitRow.R2D12);
 		} else if (R2D34_PAIR == (R2D34_PAIR & value)) {
 			value &= SELECT_MASK;
-			String s = (SIGN_MASK == (SIGN_MASK & value)) ? "-": "|" +
+			String s = ((SIGN_MASK == (SIGN_MASK & value)) ? "-": "|") +
 					getDigit((value & LEFT_DIGIT) >> 5) +
 					getDigit(value & RIGHT_DIGIT);
 			eldPanel.setRow(s, ELDDigitRow.R2D34);
@@ -246,7 +246,7 @@ class AGCController implements Runnable {
 			eldPanel.setRow(s, ELDDigitRow.R23D51);
 		} else if (R3D23_PAIR == (R3D23_PAIR & value)) {
 			value &= SELECT_MASK;
-			String s = ((SIGN_MASK == (SIGN_MASK & value)) ? "-" : "|") +
+			String s = ((SIGN_MASK == (SIGN_MASK & value)) ? "+" : "|") +
 					getDigit((value & LEFT_DIGIT) >> 5) +
 					getDigit(value & RIGHT_DIGIT);
 			eldPanel.setRow(s, ELDDigitRow.R3D23);

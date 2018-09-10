@@ -20,6 +20,7 @@
 #include <android/log.h>
 #include <inttypes.h>
 #include <unistd.h>
+#include <time.h>
 #include "agc_control.h"
 #include "agc_engine.h"
 #include "agc_io.h"
@@ -32,6 +33,13 @@ jint Java_nl_thymo_androidagc_AGCController_init(JNIEnv *env, jobject obj)
 {
 	IOenv = env;
 	instance = obj;
+
+	if (clock_getres(CLOCK_MONOTONIC, NULL)) {
+		__android_log_print(ANDROID_LOG_FATAL, "AGCInit",
+							"System does not support CLOCK_MONOTONIC!");
+		return -1;
+	}
+
 	return agc_engine_init(&State, "Aurora12.bin", NULL, 1);
 }
 

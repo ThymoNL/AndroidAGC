@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 	private static AGCController controller;
 	private static DSKYTest dskyTest;
 
-	private int agcStatus;
+	private int agcStatus = -1;
 
 	@SuppressLint("ClickableViewAccessibility") // FIXME: Provide custom view for buttons
 	@Override

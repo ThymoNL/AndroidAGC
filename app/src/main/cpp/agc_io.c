@@ -22,7 +22,6 @@
 
 void ChannelOutput(agc_t *State, int Channel, int Value)
 {
-
 	switch (Channel) {
 		case 010:
 			handleDisplay(Value);

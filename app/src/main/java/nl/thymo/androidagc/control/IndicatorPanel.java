@@ -30,7 +30,7 @@ import nl.thymo.androidagc.R;
 public class IndicatorPanel extends LinearLayout {
 	private boolean displayOn;
 
-	private IndicatorLight uplinkLight, attLight, stbyLight, keyrelLight, oprerrLight,
+	private OldIndicatorLight uplinkLight, attLight, stbyLight, keyrelLight, oprerrLight,
 			priodispLight, nodapLight, tempLight, gimballockLight, progLight, restartLight,
 			trackerLight, altLight, velLight;
 

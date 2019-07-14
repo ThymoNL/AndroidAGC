@@ -29,7 +29,7 @@ import nl.thymo.androidagc.R;
 public class ELDPanel extends ConstraintLayout {
 	private boolean displayOn, r1signPlus, r1signMin, r2signPlus, r2signMin, r3signPlus, r3signMin;
 
-	private IndicatorLight eldActy, eldProg, eldVerb, eldNoun, r1Sep, r2Sep, r3Sep;
+	private OldIndicatorLight eldActy, eldProg, eldVerb, eldNoun, r1Sep, r2Sep, r3Sep;
 	private ELDPair modePair, verbPair, nounPair;
 	private ELDRow r1Eld, r2Eld, r3Eld;
 

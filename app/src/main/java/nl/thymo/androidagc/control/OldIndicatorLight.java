@@ -23,19 +23,20 @@ import android.util.AttributeSet;
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-public class IndicatorLight extends AppCompatImageView {
+@Deprecated
+public class OldIndicatorLight extends AppCompatImageView {
 	private int onResource = 0, offResource = 0;
 	private boolean state = false;
 
-	public IndicatorLight(Context context) {
+	public OldIndicatorLight(Context context) {
 		super(context);
 	}
 
-	public IndicatorLight(Context context, AttributeSet attrs) {
+	public OldIndicatorLight(Context context, AttributeSet attrs) {
 		super(context, attrs);
 	}
 
-	public IndicatorLight(Context context, AttributeSet attrs, int defStyleAttr) {
+	public OldIndicatorLight(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
 	}
 

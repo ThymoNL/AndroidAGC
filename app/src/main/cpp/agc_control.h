@@ -25,11 +25,10 @@ extern "C" {
 #endif
 
 #include <jni.h>
-#include <stdbool.h>
 #include "agc_engine.h"
 
 static agc_t State;
-bool halt = false;
+volatile bool halt = false;
 
 JNIEXPORT JNICALL jint Java_nl_thymo_androidagc_AGCController_init(JNIEnv *env, jobject obj);
 JNIEXPORT JNICALL void Java_nl_thymo_androidagc_AGCController_cycle(JNIEnv *env, jobject obj);

@@ -34,10 +34,14 @@ jint Java_nl_thymo_androidagc_AGCController_init(JNIEnv *env, jobject obj)
 	IOenv = env;
 	instance = obj;
 
-	if (clock_getres(CLOCK_MONOTONIC, NULL)) {
+	struct timespec res;
+	if (clock_getres(CLOCK_MONOTONIC, &res)) {
 		__android_log_print(ANDROID_LOG_FATAL, "AGCInit",
 							"System does not support CLOCK_MONOTONIC!");
 		return -1;
+	} else {
+		__android_log_print(ANDROID_LOG_INFO, "AGCInit", "CLOCK_MONOTONIC resolution %li ns",
+							res.tv_nsec);
 	}
 
 	return agc_engine_init(&State, "Aurora12.bin", NULL, 1);
@@ -49,13 +53,34 @@ void Java_nl_thymo_androidagc_AGCController_cycle(JNIEnv *env, jobject obj)
 	IOenv = env;
 	instance = obj;
 
+	long DesiredCycles = 0;
+	struct timespec last, now;
+	clock_gettime(CLOCK_MONOTONIC, &now);
+	last = now;
+
 	while (1) {
-		if (halt)
+		if (halt) {
 			break;
-		agc_engine(&State);
-		__android_log_print(ANDROID_LOG_VERBOSE, "AGCClock", "Cyclecount: %" PRIu64 "\n",
-							State.CycleCounter);
-		usleep((unsigned int) 11.7);
+		}
+
+		clock_gettime(CLOCK_MONOTONIC, &now);
+
+		DesiredCycles = static_cast<long>((now.tv_nsec - last.tv_nsec) / 1000000000.0 * AGC_PER_SECOND);
+
+		if (DesiredCycles == 0) { // Save some power
+			struct timespec req, rem;
+			req.tv_sec = 0;
+			req.tv_nsec = 10000000; // 10ms
+			nanosleep(&req, &rem);
+			continue;
+		}
+
+		while (DesiredCycles-- > 0) {
+			//__android_log_print(ANDROID_LOG_VERBOSE, "AGCClock", "Cycles: %lu", State.CycleCounter++);
+			agc_engine(&State);
+		}
+
+		last = now;
 	}
 	halt = false;
 }

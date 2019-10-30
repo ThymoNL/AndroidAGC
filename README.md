@@ -1,7 +1,7 @@
 # AndroidAGC
 [![GPLv2](https://img.shields.io/badge/license-GPL-blue.svg)](https://github.com/Thymo-/AndroidAGC/blob/master/LICENSE)
 
-AndroidAGC is  DSKY peripheral simulation using Ron Burkey's yaAGC on Android.
+AndroidAGC is a DSKY peripheral simulation using Ron Burkey's yaAGC on Android.
 
 ## Requirements
 - Android Studio
